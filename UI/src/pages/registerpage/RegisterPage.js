@@ -131,13 +131,13 @@ export default function RegisterPage(props) {
             <div className="rfs-password">
               <p>Password *</p>
               {showErrorP && (<div className="rfs-error"><p>must contain upper/lowercase characters and numbers - between 8-50 characters</p></div>)}
-              <Textbox1 placeholderD="Type a strong password" method={handlePasswordChange}/>
+              <Textbox1 type="password" placeholderD="Type a strong password" method={handlePasswordChange}/>
             </div>
 
             <div className="rfs-confirmed-password">
               <p>Confirm Password *</p>
               {showErrorCF && (<div className="rfs-error"><p>passwords don't match</p></div>)}
-              <Textbox1 placeholderD="Repeat the password" method={handleConfirmedPasswordChange}/>
+              <Textbox1 type="password" placeholderD="Repeat the password" method={handleConfirmedPasswordChange}/>
             </div>
 
             <div className="rfs-submit" onClick={registerUser}>

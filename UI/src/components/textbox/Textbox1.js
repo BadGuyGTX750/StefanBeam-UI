@@ -2,7 +2,8 @@ import React from "react";
 
 export default function Textbox1(props) {
 
-  const placeholderD = props.placeholderD
+  const placeholderD = props.placeholderD;
+  const typeD = props.type;
 
   const handleChange = (event) => {
     props.method(event.target.value)
@@ -10,7 +11,7 @@ export default function Textbox1(props) {
 
   return(
     <div className="text-box-register">
-      <input type="text" placeholder={placeholderD} onBlur={handleChange}/>
+      <input type={typeD} placeholder={placeholderD} onBlur={handleChange}/>
     </div>
   );
 }

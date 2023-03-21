@@ -55,7 +55,7 @@ export default function LoginPage(props) {
 
             <div className="lfs-lastname">
               <p>Password *</p>
-              <Textbox1 placeholderD="" method={handlePasswordChange}/>
+              <Textbox1 type="password" placeholderD="" method={handlePasswordChange}/>
             </div>
 
             <div className="lfs-signin">
