@@ -1,0 +1,18 @@
+.button1-orange button {
+    color: white;
+    font-size: 15px;
+    font-family: sans-serif;
+    font-weight: bold;
+    background-color: #ff4100;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: none;
+    transition: 0.4s ease-out;
+}
+
+.button1-orange button:hover {
+    background-color: #b82e00;
+    transition: 0.3s ease-in;
+}

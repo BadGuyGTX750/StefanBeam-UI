@@ -1,0 +1,62 @@
+
+
+.divider {
+    background-color: black;
+    height: 50px;
+    min-width: 1000px;
+}
+
+.photo-auth-cart {
+    background-color: white;
+    height: 100px;
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.site-logo {
+    padding: 15px;
+    padding-left: 2px;
+    background-color: aquamarine;
+}
+
+.auth-cart {
+    padding: 35px;
+    background-color: yellow;
+    display: flex;
+
+}
+
+.auth-cart .auth{
+    margin-right: 20px;
+    background-color: pink;
+}
+
+.auth-cart .cart {
+    background-color: pink;
+}
+
+.categories {
+    background-color: pink;
+    height: 50px;
+    width: 1000px;
+    margin: auto;
+}
+
+.categories ul {
+    list-style: none;
+    display: flex;
+    gap: 26px;
+    padding-top: 17px;
+    padding-left: 0px;
+}
+
+.categories a {
+    text-decoration: none;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}

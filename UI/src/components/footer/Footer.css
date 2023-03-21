@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+}
+
+.content {
+    background-color: aqua;
+}
+
+.infos {
+    background-color: black;
+    min-width: 1000px;
+}
+
+.info-section {
+    background-color: black;
+    width: 1000px;
+    height: 240px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-section-general {
+    background-color: black;
+    width: 240px;
+}
+
+.info-section-general p {
+    padding: 2px;
+    margin-top: 7px;
+}
+
+.info-section-general a {
+    color: white;
+    font-family: sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    transition: 0.4s ease-out;
+}
+
+.info-section-general a:hover {
+    color: #ff4100;;
+    transition: 0.3s ease-in;
+}
+
+.info-section-follow-us {
+    background-color: black;
+    width: 240px;
+}
+
+.info-section-follow-us p {
+    padding: 2px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.info-section-follow-us a {
+    margin: 4px;
+}
+
+.info-section-follow-us img {
+    background-color: none;
+    border-radius: 50%;
+    transition: 0.4s ease-out;
+}
+
+.info-section-follow-us img:hover {
+    background-color: #ff4100;;
+    transition: 0.3s ease-in;
+}
+
+.info-section-quality-approved {
+    background-color: black;
+    width: 240px;
+}
+
+.info-section-quality-approved p {
+    padding: 2px;
+    margin-top: 7px;
+    margin-bottom: 6px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+.info-section-quality-approved img {
+    margin: 4px;
+}
+
+.info-section-contacts {
+    background-color: black;
+    padding-top: 7px;
+    width: 240px;
+}
+
+.info-section-contacts p {
+    color: white;
+    font-family: sans-serif;
+    font-size: 15px;
+    margin: 3px;
+}
+
+.divider-footer {
+    background-color: white;
+    min-width: 1000px;
+    height: 18px;
+    text-align: center;
+}
+
+.divider-footer a {
+    color: black;
+    font-size: 14px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+.signature-footer {
+    background-color: black;
+    min-width: 1000px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signature-footer p {
+    color: white;
+    background-color: none;
+    font-family: sans-serif;
+    font-size: 15px;
+    text-align: center;
+}
+

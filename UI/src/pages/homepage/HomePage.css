@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+}
+
+.content {
+    background-color: aqua;
+}
+
+.spotlight {
+    background-color: aquamarine;
+    height: 600px;
+    min-width: 1000px;
+    max-width: 2000px;
+    margin: auto;
+}
+
+.products-section {
+    background-color: pink;
+    min-height: 600px;
+    height: 50vh;
+    width: 1000px;
+    margin: auto;
+}

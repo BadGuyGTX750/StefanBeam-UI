@@ -1,0 +1,67 @@
+
+
+.login-page-title {
+    background-color: aquamarine;
+    height: 60px;
+    width: 1000px;
+    margin: auto;
+    
+}
+
+.login-page-title h2 {
+    font-size: 19px;
+    font-family: sans-serif;
+    color: #ff4100;
+    padding-top: 10px;
+}
+
+.login-formular-section {
+    font-size: 16px;
+    font-family: sans-serif;
+    background-color: aquamarine;
+    min-height: 550px;
+    height: 60vh;
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+}
+
+.login-formular-section h2 {
+    font-size: 19px;
+    font-family: sans-serif;
+}
+
+.login-formular-section p {
+    background-color: inherit;
+    margin-bottom: 10px;
+    margin-top: 18px;
+}
+
+.lfs-top-title p {
+    font-size: 14px;
+    font-family: sans-serif;
+    padding-top: 5px;
+}
+
+.lfs-bot-title p {
+    font-size: 14px;
+    font-family: sans-serif;
+    padding-top: 5px;
+}
+
+.lfs-left {
+    background-color: inherit;
+    width: 500px;
+}
+
+.lfs-create-account {
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.lfs-signin {
+    padding-top: 30px;
+}
+
