@@ -36,8 +36,8 @@
 
 .register-formular-section p {
     background-color: inherit;
-    margin-bottom: 10px;
-    margin-top: 18px;
+    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 .rfs-left {
@@ -55,8 +55,7 @@
 }
 
 .rfs-error p {
-    position: absolute;
-    margin-top: 29px;
+    margin-top: 2px;
     color: red;
     font-size: 12px;
     font-family: sans-serif;
