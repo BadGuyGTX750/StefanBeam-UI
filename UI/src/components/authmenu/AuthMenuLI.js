@@ -1,6 +1,11 @@
-
+import api_logout from "../../api/auth/api_logout";
 
 export default function AuthMenu() {
+
+  const HandleLogout = () => {
+    api_logout();
+  }
+
   return (
     <div className="authmenuLI-dropdown">
       <a href="/myaccount">
@@ -13,8 +18,8 @@ export default function AuthMenu() {
           <p>My Orders</p>
         </div>
       </a>
-      <a href="/logout">
-        <div className="authmenuLI-dropdown-logout">
+      <a href="/home">
+        <div className="authmenuLI-dropdown-logout" onClick={HandleLogout}>
           <p>Log out</p>
         </div>
       </a>

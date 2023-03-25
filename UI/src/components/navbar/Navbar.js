@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import AuthMenuNLI from "../authmenu/AuthMenuNLI";
-import "../authmenu/AuthMenuNLI.css"
 import AuthMenuLI from "../authmenu/AuthMenuLI";
+import "../authmenu/AuthMenuNLI.css"
 import "../authmenu/AuthMenuLI.css"
 
 function Navbar(props) {
@@ -10,16 +10,30 @@ function Navbar(props) {
     const [isDroppedDown, setIsDroppedDown] = useState(false)
     const timeoutRef = useRef(null);
     
-    const handleMouseEnter = () => {
+    const HandleMouseEnter = () => {
       clearTimeout(timeoutRef.current);
+      IsCookiePresent();
       setIsDroppedDown(true);
     }
 
-    const handleMouseLeave = () => {
+    const HandleMouseLeave = () => {
       timeoutRef.current = setTimeout(() => {
         setIsDroppedDown(false);
       }, 1000)
-      
+    }
+
+    const IsCookiePresent = () => {
+      var localCookies = document.cookie.split("; ");
+
+      var isTrue = false;
+      localCookies.forEach(ck => {
+        var parts = ck.split("=")
+        if (parts[0] === "RestApp-Token" && parts[1] !== "") {
+          isTrue = true;
+          return;
+        }
+      })
+      setIsLoggedIn(isTrue);
     }
 
     return (
@@ -34,7 +48,7 @@ function Navbar(props) {
             </a>
           </div>
           <div className="auth-cart">
-            <div className="auth" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div className="auth" onMouseEnter={HandleMouseEnter} onMouseLeave={HandleMouseLeave}>
               <img src={require("../../images/profile-icon.png")} alt="authentication" height="30"></img>
               <div className="auth-dropdown">
                 {!isLoggedIn && isDroppedDown && <AuthMenuNLI/>}

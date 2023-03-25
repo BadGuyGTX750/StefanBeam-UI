@@ -17,6 +17,9 @@ export default function RegisterPage(props) {
     const [password, setP] = useState("");
     const [confirmedPassword, setCF] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const [checkEmail, setCheckEmail] = useState(false);
+    const [userAlreadyRegistered, setUserAlreadyRegister] = useState(false);
+    const [registerFailed, setRegisterFailed] = useState(false);
 
     const [showErrorFN, setErrorFN] = useState(false);
     const [showErrorLN, setErrorLN] = useState(false);
@@ -55,8 +58,7 @@ export default function RegisterPage(props) {
       if (value !== confirmedPassword) setErrorCF(true);
       else setErrorCF(false);
       setP(value);
-
-      if(!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:'",.<>/?-]{8,50}$/i.test(value))) {
+      if(!(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:'",.<>/?]{8,50}$/i.test(value))) {
         setErrorP(true);
         return;
       }
@@ -78,29 +80,37 @@ export default function RegisterPage(props) {
       var isValidE = validateEmail(email);
       var isValidFN = /^([A-Za-z]{1,50})$/i.test(firstName);
       var isValidLN = /^([A-Za-z]{1,50})$/i.test(lastName);
-      var isValidP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:'",.<>/?-]{8,50}$/i.test(password);
+      var isValidP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{8,50}$/i.test(password);
       var isValidCF = false;
       if (password === confirmedPassword)
         isValidCF = true;
 
-      if (!(isValidE && isValidFN && isValidLN && isValidP && isValidCF)) {
-        setErrorFN(true);
-        setErrorLN(true);
-        setErrorE(true);
-        setErrorP(true);
-        setErrorCF(true);
+      if (!(isValidFN && isValidLN && isValidE && isValidP && isValidCF)) {
+        setErrorFN(!isValidFN);
+        setErrorLN(!isValidLN);
+        setErrorE(!isValidE);
+        setErrorP(!isValidP);
+        setErrorCF(!isValidCF);
         setIsLoading(false);
         return;
       }
 
       await api_register(firstName, lastName, email, password)
         .then(response => {
-          console.log(response);
           setTimeout(() => setIsLoading(false), 1000);
+          setTimeout(() => setCheckEmail(true), 1000);
+          setTimeout(() => setCheckEmail(false), 5000);
         })
         .catch(error => {
-          console.log(error);
           setTimeout(() => setIsLoading(false), 1000);
+          if (error.response.status === 409) {
+            setTimeout(() => setUserAlreadyRegister(true), 1000);
+            setTimeout(() => setUserAlreadyRegister(false), 4000);
+          }
+          if (error.response.status !== 409) {
+            setTimeout(() => setRegisterFailed(true), 1000);
+            setTimeout(() => setRegisterFailed(false), 4000);
+          }
         });
     }
 
@@ -116,6 +126,10 @@ export default function RegisterPage(props) {
         <div className="register-page-title">
             <h2>Create New Customer Account</h2>
         </div>
+
+        { checkEmail && <div className="register-page-check-email"><p>Register successfull, check email to verify your account.</p></div> }
+        { userAlreadyRegistered && <div className="register-page-already-registered"><p>There is already an account associated with this email.</p></div> }
+        { registerFailed && <div className="register-page-register-failed"><p>Something went wrong with the registration process</p></div> }
 
         <div className="register-formular-section">
           <div className="rfs-left">
@@ -160,7 +174,7 @@ export default function RegisterPage(props) {
             </div>
 
             <div className="rfs-submit" onClick={registerUser}>
-              <Button1 type="submit" disabled={isLoading} text="CREATE AN ACCOUNT"/>
+              <Button1 type="submit" text="CREATE AN ACCOUNT"/>
             </div>
           </div>
 

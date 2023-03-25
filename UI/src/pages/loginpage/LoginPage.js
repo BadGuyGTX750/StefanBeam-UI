@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import Textbox1 from "../../components/textbox/Textbox1";
@@ -6,21 +6,67 @@ import "../../components/footer/Footer.css";
 import "../../components/navbar/Navbar.css";
 import "../../components/textbox/Textbox1.css";
 import Button1 from "../../components/button/Button1";
+import validateEmail from "../../services/ValidateEmail";
+import LoadingSpinner from "../../components/spinner/Spinner";
+import api_login from "../../api/auth/api_login";
 
 export default function LoginPage(props) {
-    var email = null;
-    var password = null
+    const [email, setE] = useState("");
+    const [password, setP] = useState("");
 
-    const handleEmailChange = (value) => {
-      email = value;
+    const [showErrorE, setErrorE] = useState(false);
+    const [showErrorP, setErrorP] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [loginFailed, setLoginFailed] = useState(false);
+
+    const HandleEmailChange = (value) => {
+      setE(value);
+      if (!validateEmail(value)) {
+        setErrorE(true);
+        return;
+      }
+      setErrorE(false);
     };
 
-    const handlePasswordChange = (value) => {
-      password = value;
+    const HandlePasswordChange = (value) => {
+      setP(value);
+      if(!(/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]+$/i.test(value))) {
+        setErrorP(true);
+        return;
+      }
+      setErrorP(false);
     };
+
+    async function HandleLogin() {
+      setIsLoading(true);
+
+      var isValidE = validateEmail(email);
+      var isValidP = /^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]+$/i.test(password);
+
+      console.log(isValidE, isValidP);
+
+      if (!(isValidE && isValidP)) {
+        setErrorE(!isValidE);
+        setErrorP(!isValidP);
+        setIsLoading(false);
+        return;
+      }
+      await api_login(email, password)
+        .then(response => {
+          setTimeout(() => setIsLoading(false), 1000);
+          window.location.href = "/"
+        })
+        .catch(error => {
+          setTimeout(() => setIsLoading(false), 1000);
+          setTimeout(() => setLoginFailed(true), 1000);
+          setTimeout(() => setLoginFailed(false), 4000);
+        });
+    }
 
     return(
       <div className="content">
+
+        { isLoading && <LoadingSpinner/> }
 
         <div className="navbar">
           <Navbar/>
@@ -29,6 +75,8 @@ export default function LoginPage(props) {
         <div className="login-page-title">
             <h2>Customer Login</h2>
         </div>
+
+        { loginFailed && <div className="login-page-login-failed"><p>Login Failed</p></div> }
 
         <div className="login-formular-section">
           <div className="lfs-left">
@@ -50,15 +98,17 @@ export default function LoginPage(props) {
 
             <div className="lfs-firstname">
               <p>Email *</p>
-              <Textbox1 placeholderD="" method={handleEmailChange}/>
+              <Textbox1 placeholderD="" method={HandleEmailChange}/>
+              {showErrorE && (<div className="lfs-error"><p>please enter a valid email</p></div>)}
             </div>
 
             <div className="lfs-lastname">
               <p>Password *</p>
-              <Textbox1 type="password" placeholderD="" method={handlePasswordChange}/>
+              <Textbox1 type="password" placeholderD="" method={HandlePasswordChange}/>
+              {showErrorP && (<div className="lfs-error"><p>required field</p></div>)}
             </div>
 
-            <div className="lfs-signin">
+            <div className="lfs-signin" onClick={HandleLogin}>
               <Button1 text="SIGN IN"/>
             </div>
           </div>

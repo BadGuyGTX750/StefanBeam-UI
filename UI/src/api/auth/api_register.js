@@ -8,10 +8,10 @@ export default async function api_register(fn, ln, e, p) {
         lastName: ln,
         email: e,
         password: p
-    }
-    return await axios({
-        method: 'post',
-        url: serverUrl + '/api/auth/register',
-        data: payload
-    });
+    };
+    return await axios.post(
+      serverUrl + "/api/auth/register",
+      payload,
+      {withCredentials: true}
+    );
 }

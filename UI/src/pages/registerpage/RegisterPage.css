@@ -26,6 +26,7 @@
     display: flex;
     flex-direction: row;
     gap: 0px;
+    padding-top: 20px;
 }
 
 .register-formular-section h2 {
@@ -62,3 +63,44 @@
     font-weight: bold;
 }
 
+.register-page-check-email {
+    width: 1000px;
+    margin: auto;
+}
+
+.register-page-check-email p {
+    padding: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-color: green;
+}
+
+.register-page-already-registered {
+    width: 1000px;
+    margin: auto;
+}
+
+.register-page-already-registered p {
+    padding: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(255, 104, 17);
+}
+
+.register-page-register-failed {
+    width: 1000px;
+    margin: auto;
+}
+
+.register-page-register-failed p {
+    padding: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgb(255, 104, 17);
+}
