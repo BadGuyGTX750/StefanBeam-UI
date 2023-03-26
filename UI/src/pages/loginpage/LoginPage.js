@@ -54,7 +54,7 @@ export default function LoginPage(props) {
       await api_login(email, password)
         .then(response => {
           setTimeout(() => setIsLoading(false), 1000);
-          window.location.href = "/"
+          window.location.href = "/home"
         })
         .catch(error => {
           setTimeout(() => setIsLoading(false), 1000);
@@ -86,7 +86,7 @@ export default function LoginPage(props) {
             </div>
 
             <div className="lfs-create-account">
-              <a href="/register">
+              <a href="/customer/account/register/">
                 <Button1 text="CREATE AN ACCOUNT"/>
               </a>
             </div>

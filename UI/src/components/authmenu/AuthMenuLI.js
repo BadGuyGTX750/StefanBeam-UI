@@ -10,7 +10,7 @@ export default function AuthMenu() {
     await api_logout()
     .then(response => {
       setTimeout(() => setIsLoading(false), 1000);
-      setTimeout(() => window.location.href = "/", 1000);
+      setTimeout(() => window.location.href = "/home", 1000);
     })
     .catch(error => {
       setTimeout(() => setIsLoading(false), 1000);
@@ -23,12 +23,12 @@ export default function AuthMenu() {
         { isLoading && <LoadingSpinner/> }
       </div>
       <div className="authmenuLI-dropdown">
-      <a href="/myaccount">
+      <a href="/customer/account/">
         <div className="authmenuLI-dropdown-myaccount">
           <p>My Account</p>
         </div>
       </a>
-      <a href="/myorders">
+      <a href="/sales/order/history/">
         <div className="authmenuLI-dropdown-myorders">
           <p>My Orders</p>
         </div>

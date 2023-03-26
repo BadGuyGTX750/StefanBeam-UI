@@ -54,7 +54,7 @@ export default function Navbar(props) {
                 {isLoggedIn && isDroppedDown && <AuthMenuLI/>}
               </div>
             </div>
-            <a className="cart" href="/cart">
+            <a className="cart" href="/checkout/cart/">
               <img src={require("../../images/shopping-cart-icon.png")} alt="cart" height="35"></img>
             </a>
           </div>

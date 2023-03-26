@@ -7,6 +7,13 @@ import RegisterPage from "./pages/registerpage/RegisterPage";
 function Router(props) {
   const router = createBrowserRouter([
     {
+      path: "",
+      element: 
+      <div>
+        <HomePage/>
+      </div>,
+    },
+    {
       path: "/",
       element: 
       <div>
@@ -56,42 +63,35 @@ function Router(props) {
       </div>,
     },
     {
-      path:"/login",
+      path:"/customer/account/login/",
       element: 
       <div>
         <LoginPage/>
       </div>,
     },
     {
-      path:"/register",
+      path:"/customer/account/register/",
       element: 
       <div>
         <RegisterPage/>
       </div>,
     },
     {
-      path:"/myaccount",
+      path:"/customer/account/",
       element: 
       <div>
         <HomePage/>
       </div>,
     },
     {
-      path:"/myorders",
+      path:"/sales/order/history/",
       element: 
       <div>
         <HomePage/>
       </div>,
     },
     {
-      path:"/logout",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path:"/cart",
+      path:"/checkout/cart/",
       element: 
       <div>
         <HomePage/>
