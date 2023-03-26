@@ -1,7 +1,7 @@
 
 
 .register-page-title {
-    background-color: aquamarine;
+    background-color: white;
     height: 60px;
     width: 1000px;
     margin: auto;
@@ -18,7 +18,7 @@
 .register-formular-section {
     font-size: 16px;
     font-family: sans-serif;
-    background-color: aquamarine;
+    background-color: white;
     min-height: 400px;
     height: 60vh;
     width: 1000px;
@@ -86,7 +86,6 @@
     padding: 10px;
     font-size: 16px;
     font-family: sans-serif;
-    font-weight: bold;
     text-align: center;
     background-color: rgb(255, 104, 17);
 }
@@ -100,7 +99,6 @@
     padding: 10px;
     font-size: 16px;
     font-family: sans-serif;
-    font-weight: bold;
     text-align: center;
     background-color: rgb(255, 104, 17);
 }

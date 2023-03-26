@@ -19,27 +19,27 @@
 .site-logo {
     padding: 15px;
     padding-left: 2px;
-    background-color: aquamarine;
+    background-color: white;
 }
 
 .auth-cart {
     padding: 35px;
-    background-color: yellow;
+    background-color: white;
     display: flex;
 
 }
 
 .auth-cart .auth{
     margin-right: 20px;
-    background-color: pink;
+    background-color: white;
 }
 
 .auth-cart .cart {
-    background-color: pink;
+    background-color: white;
 }
 
 .categories {
-    background-color: pink;
+    background-color: white;
     height: 50px;
     width: 1000px;
     margin: auto;
