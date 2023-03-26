@@ -43,18 +43,17 @@ export default function LoginPage(props) {
       var isValidE = validateEmail(email);
       var isValidP = /^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]+$/i.test(password);
 
-      console.log(isValidE, isValidP);
-
       if (!(isValidE && isValidP)) {
         setErrorE(!isValidE);
         setErrorP(!isValidP);
         setIsLoading(false);
         return;
       }
+      
       await api_login(email, password)
         .then(response => {
           setTimeout(() => setIsLoading(false), 1000);
-          window.location.href = "/home"
+          window.location.href = "/home";
         })
         .catch(error => {
           setTimeout(() => setIsLoading(false), 1000);
@@ -110,7 +109,7 @@ export default function LoginPage(props) {
 
             <div className="lfs-signin" onClick={HandleLogin}>
               <Button1 text="SIGN IN"/>
-              <a href="/customer/account/login/">
+              <a href="/customer/account/forgotpassword/">
                 <p>Forgot your Password?</p>
               </a>
             </div>

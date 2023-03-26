@@ -5,6 +5,7 @@ import Router from './Router';
 import "./pages/homepage/HomePage.css";
 import "./pages/registerpage/RegisterPage.css";
 import "./pages/loginpage/LoginPage.css";
+import "./pages/forgotpasswordpage/ForgotPasswordPage.css";
 
 const appRouter = Router()
 
