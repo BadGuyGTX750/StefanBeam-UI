@@ -28,14 +28,14 @@ function Router(props) {
       </div>,
     },
     {
-      path: "/sportsnutrition",
+      path: "/sports-nutrition",
       element: 
       <div>
         <HomePage/>
       </div>,
     },
     {
-      path:"/healthyfoods",
+      path:"/healthy-foods",
       element: 
       <div>
         <HomePage/>
@@ -49,7 +49,7 @@ function Router(props) {
       </div>,
     },
     {
-      path:"/workoutaccessories",
+      path:"/workout-accessories",
       element: 
       <div>
         <HomePage/>

@@ -63,16 +63,16 @@ export default function Navbar(props) {
         <div className="categories">
           <ul>
             <li>
-              <a href="/sportsnutrition">SPORTS NUTRITION</a>
+              <a href="/sports-nutrition">SPORTS NUTRITION</a>
             </li>
             <li>
-              <a href="/healthyfoods">HEALTHY FOODS</a>
+              <a href="/healthy-foods">HEALTHY FOODS</a>
             </li>
             <li>
               <a href="/clothing">CLOTHING</a>
             </li>
             <li>
-              <a href="/workoutaccessories">WORKOUT ACCESSORIES</a>
+              <a href="/workout-accessories">WORKOUT ACCESSORIES</a>
             </li>
           </ul>
         </div>
