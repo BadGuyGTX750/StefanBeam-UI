@@ -4,8 +4,7 @@ import AuthMenuLI from "../authmenu/AuthMenuLI";
 import "../authmenu/AuthMenuNLI.css"
 import "../authmenu/AuthMenuLI.css"
 
-function Navbar(props) {
-
+export default function Navbar(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isDroppedDown, setIsDroppedDown] = useState(false)
     const timeoutRef = useRef(null);
@@ -80,5 +79,3 @@ function Navbar(props) {
       </div>
     );
 }
-
-export default Navbar
