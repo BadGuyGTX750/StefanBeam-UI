@@ -110,6 +110,9 @@ export default function LoginPage(props) {
 
             <div className="lfs-signin" onClick={HandleLogin}>
               <Button1 text="SIGN IN"/>
+              <a href="/customer/account/login/">
+                <p>Forgot your Password?</p>
+              </a>
             </div>
           </div>
 

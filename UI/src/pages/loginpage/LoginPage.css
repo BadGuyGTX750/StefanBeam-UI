@@ -64,6 +64,16 @@
 
 .lfs-signin {
     padding-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.lfs-signin a {
+    background-color: white;
+    margin-left: 220px;
+    font-size: 15px;
+    font-family: sans-serif;
+    color: #ff4100;
 }
 
 .lfs-error p {
