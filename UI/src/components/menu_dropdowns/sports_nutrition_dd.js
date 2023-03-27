@@ -6,7 +6,11 @@ export default function SportsNutritionDD() {
 
   const jsonFile = appsettings.categories["SPORTS NUTRITION"];
 
+  function RetrieveMenuList() {
+    return GenericDD(jsonFile)
+  }
+
   return(
-    GenericDD(jsonFile)
+    RetrieveMenuList()
   );
 }
