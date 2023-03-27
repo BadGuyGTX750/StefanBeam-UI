@@ -3,6 +3,7 @@ import AuthMenuNLI from "../authmenu/AuthMenuNLI";
 import AuthMenuLI from "../authmenu/AuthMenuLI";
 import "../authmenu/AuthMenuNLI.css"
 import "../authmenu/AuthMenuLI.css"
+import SportsNutritionDD from "../menu_dropdowns/sports_nutrition_dd";
 
 export default function Navbar(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -18,7 +19,7 @@ export default function Navbar(props) {
     const HandleMouseLeave = () => {
       timeoutRef.current = setTimeout(() => {
         setIsDroppedDown(false);
-      }, 1000)
+      }, 500)
     }
 
     const IsCookiePresent = () => {
@@ -61,20 +62,21 @@ export default function Navbar(props) {
         </div>
 
         <div className="categories">
-          <ul>
-            <li>
-              <a href="/sports-nutrition">SPORTS NUTRITION</a>
-            </li>
-            <li>
-              <a href="/healthy-foods">HEALTHY FOODS</a>
-            </li>
-            <li>
-              <a href="/clothing">CLOTHING</a>
-            </li>
-            <li>
-              <a href="/workout-accessories">WORKOUT ACCESSORIES</a>
-            </li>
-          </ul>
+            <div className="categories-item" href="/sports-nutrition">
+              <p>SPORTS NUTRITION</p>
+              <div className="sports-nutrition-dropdown">
+                <SportsNutritionDD/>
+              </div>
+            </div>
+            <div className="categories-item" href="/healthy-foods">
+              <p>HEALTHY FOODS</p>
+            </div>
+            <div className="categories-item" href="/clothing">
+              <p>CLOTHING</p>
+            </div>
+            <div className="categories-item" href="/workout-accessories">
+              <p>WORKOUT ACCESSORIES</p>
+            </div>
         </div>
       </div>
     );

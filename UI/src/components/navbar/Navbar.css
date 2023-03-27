@@ -42,21 +42,25 @@
     background-color: white;
     height: 50px;
     width: 1000px;
+    display: flex;
     margin: auto;
 }
 
-.categories ul {
+.categories-item {
+    background-color: white;
     list-style: none;
-    display: flex;
-    gap: 26px;
-    padding-top: 17px;
-    padding-left: 0px;
+    padding: 17px;
 }
 
-.categories a {
+.categories-item:hover {
+    background-color: rgb(241, 241, 241);
+    cursor: pointer;
+}
+
+.categories p {
     text-decoration: none;
     color: black;
     font-family: sans-serif;
-    font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
 }
