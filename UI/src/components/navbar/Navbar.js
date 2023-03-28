@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, Component } from "react";
 import AuthMenuNLI from "../authmenu/AuthMenuNLI";
 import AuthMenuLI from "../authmenu/AuthMenuLI";
 import "../authmenu/AuthMenuNLI.css"
@@ -9,6 +9,20 @@ export default function Navbar(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isDroppedDown, setIsDroppedDown] = useState(false)
     const timeoutRef = useRef(null);
+
+    // set up the drop-down menus
+    function ConfigureDropDownMenu() {
+      for (var i = 0; i < 5; i++) {
+        var gen_dd_item = document.getElementsByClassName("gen-dd-item-"+i)
+        console.log(gen_dd_item.length)
+        if (gen_dd_item.length > 0) {
+          //console.log(gen_dd_item.length)
+          for (var j = 0; j < gen_dd_item.length; j++) {
+            //console.log(gen_dd_item[j])
+          }
+        }
+      }
+    }
 
     const HandleMouseEnter = () => {
       clearTimeout(timeoutRef.current);
