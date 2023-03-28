@@ -17,9 +17,17 @@
     padding-left: 0px;
 }
 
+.gen-dd-item-0:hover {
+    background-color: aqua;
+}
+
 .gen-dd-item-1 {
     padding: 3px;
     padding-left: 15px;
+}
+
+.gen-dd-item-1:hover {
+    background-color: aqua;
 }
 
 .gen-dd-item-2 {
@@ -27,7 +35,15 @@
     padding-left: 30px;
 }
 
+.gen-dd-item-2:hover {
+    background-color: aqua;
+}
+
 .gen-item-3 {
     padding: 3px;
     padding-left: 45px;
+}
+
+.gen-dd-item-3:hover {
+    background-color: aqua;
 }

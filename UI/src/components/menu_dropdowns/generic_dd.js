@@ -1,7 +1,12 @@
+
 import React from "react";
 import "./generic_dd.css"
 
 export default function GenericDD(jsonFile){
+
+  function GetCategoryName(textCtx) {
+    console.log(textCtx)
+  }
 
   var pairs = []
 
@@ -32,6 +37,14 @@ export default function GenericDD(jsonFile){
     })
     console.log(menuList)
     console.log(divs)
+    
+    var gen_dd_item_0 = document.getElementsByClassName("gen-dd-item-0")
+    gen_dd_item_0.forEach(item => {
+      item.addEventListener("click", e => {
+        console.log("DAAAAA")
+      })
+    })
+
     return divs
   }
 

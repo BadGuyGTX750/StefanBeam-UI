@@ -9,7 +9,7 @@ export default function Navbar(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isDroppedDown, setIsDroppedDown] = useState(false)
     const timeoutRef = useRef(null);
-    
+
     const HandleMouseEnter = () => {
       clearTimeout(timeoutRef.current);
       IsCookiePresent();
