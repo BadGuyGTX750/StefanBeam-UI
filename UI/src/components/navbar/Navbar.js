@@ -3,7 +3,6 @@ import AuthMenuNLI from "../authmenu/AuthMenuNLI";
 import AuthMenuLI from "../authmenu/AuthMenuLI";
 import "../authmenu/AuthMenuNLI.css"
 import "../authmenu/AuthMenuLI.css"
-import "../menu_dropdowns/generic_dd.css"
 import SportsNutritionDD from "../menu_dropdowns/sports_nutrition_dd";
 
 export default function Navbar(props) {

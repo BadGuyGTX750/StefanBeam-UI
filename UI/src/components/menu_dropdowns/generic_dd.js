@@ -1,12 +1,13 @@
 import React from "react";
+import "./generic_dd.css"
 
 export default function GenericDD(jsonFile){
 
-  var divs = []
+  var pairs = []
 
   function dfs(file, level) {
     if (typeof file === 'string') {
-      divs.push([file, level/2])
+      pairs.push([file, level/2])
       return
     }
     
@@ -14,15 +15,29 @@ export default function GenericDD(jsonFile){
 
     for (var i = 0; i < data.length; i++) {
       if (data[i].length > 1)
-        divs.push([data[i], level/2])
+        pairs.push([data[i], level/2])
       dfs(file[data[i]], level + 1)
     }
+    console.log(pairs)
+    return pairs
+  }
 
+  function BuildDropDownMenu() {
+    pairs = []
+    var menuList = dfs(jsonFile, 0);
+    console.log(menuList)
+    var divs = []
+    menuList.forEach((item) => {
+      divs.push(<div className={"gen-dd-item-" + item[1]}>{item[0]}</div>)
+    })
+    console.log(menuList)
     console.log(divs)
     return divs
   }
 
   return(
-    dfs(jsonFile, 0)
+    <div className="gen-dd">
+      <BuildDropDownMenu/>
+    </div>
   );
 }
