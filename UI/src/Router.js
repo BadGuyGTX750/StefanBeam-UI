@@ -40,7 +40,7 @@ function Router(props) {
           <ProductsPage/>
         </div>,
       }
-      routes.push(route)
+      return routes.push(route)
     })
     routes.push(
       {
