@@ -9,97 +9,117 @@ import appsettings from "./appsettings.json"
 
 function Router(props) {
 
-  const jsonFileSN = appsettings.categories["SPORTS NUTRITION"];
-  const jsonFileHF = appsettings.categories["HEALTHY FOODS"];
-  const jsonFileC = appsettings.categories["CLOTHING"];
-  const jsonFileWA = appsettings.categories["WORKOUT ACCESSORIES"];
+  const jsonFile = appsettings.categories;
 
-  function dfs(file, level) {
+  var pairs = []
+
+  function dfs(file) {
     if (typeof file === 'string') {
-      this.pairs.push([file, level/2])
+      pairs.push(file)
       return
     }
     var data = Object.keys(file)
     for (var i = 0; i < data.length; i++) {
       if (data[i].length > 1)
-        this.pairs.push([data[i], level/2])
-      this.dfs(file[data[i]], level + 1)
+        pairs.push(data[i])
+      dfs(file[data[i]])
     }
-    return this.pairs
+    return pairs
   }
 
-  var router = createBrowserRouter([
-    {
-      path: "",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path: "/",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path: "/home",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path:"/products",
-      element: 
-      <div>
-        <ProductsPage/>
-      </div>,
-    },
-    {
-      path:"/customer/account/login/",
-      element: 
-      <div>
-        <LoginPage/>
-      </div>,
-    },
-    {
-      path:"/customer/account/register/",
-      element: 
-      <div>
-        <RegisterPage/>
-      </div>,
-    },
-    {
-      path:"/customer/account/forgotpassword/",
-      element: 
-      <div>
-        <ForgotPasswordPage/>
-      </div>,
-    },
-    {
-      path:"/customer/account/",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path:"/sales/order/history/",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path:"/checkout/cart/",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-  ]);
+  function AddRoutes() {
+    var routes = [];
+    var menuList = dfs(jsonFile)
+    menuList.map(item => {
+      item = item.split(',').join('')
+      var route = 
+      {
+        path: '/' + item.split(' ').join('-'),
+        element: 
+        <div>
+          <ProductsPage/>
+        </div>,
+      }
+      routes.push(route)
+    })
+    routes.push(
+      {
+        path: "",
+        element: 
+        <div>
+          <HomePage/>
+        </div>,
+      },
+      {
+        path: "/",
+        element: 
+        <div>
+          <HomePage/>
+        </div>,
+      },
+      {
+        path: "/home",
+        element: 
+        <div>
+          <HomePage/>
+        </div>,
+      },
+      {
+        path:"/products",
+        element: 
+        <div>
+          <ProductsPage/>
+        </div>,
+      },
+      {
+        path:"/customer/account/login/",
+        element: 
+        <div>
+          <LoginPage/>
+        </div>,
+      },
+      {
+        path:"/customer/account/register/",
+        element: 
+        <div>
+          <RegisterPage/>
+        </div>,
+      },
+      {
+        path:"/customer/account/forgotpassword/",
+        element: 
+        <div>
+          <ForgotPasswordPage/>
+        </div>,
+      },
+      {
+        path:"/customer/account/",
+        element: 
+        <div>
+          <HomePage/>
+        </div>,
+      },
+      {
+        path:"/sales/order/history/",
+        element: 
+        <div>
+          <HomePage/>
+        </div>,
+      },
+      {
+        path:"/checkout/cart/",
+        element: 
+        <div>
+          <HomePage/>
+        </div>,
+      },
+    )
+    return routes;
+  }
+
+  var router = createBrowserRouter(
+    AddRoutes()
+  );
 
   return router;
 }
