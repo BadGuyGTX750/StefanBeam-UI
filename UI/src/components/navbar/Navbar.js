@@ -4,11 +4,15 @@ import AuthMenuLI from "../authmenu/AuthMenuLI";
 import "../authmenu/AuthMenuNLI.css"
 import "../authmenu/AuthMenuLI.css"
 import SportsNutritionDD from "../menu_dropdowns/sports_nutrition_dd";
+import appsettings from "../../appsettings.json"
+import GenericDD from "../menu_dropdowns/generic_dd";
 
 export default function Navbar(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [isDroppedDown, setIsDroppedDown] = useState(false)
     const timeoutRef = useRef(null);
+
+    const jsonFile = appsettings.categories["SPORTS NUTRITION"];
 
     // set up the drop-down menus
     function ConfigureDropDownMenu() {
@@ -79,7 +83,7 @@ export default function Navbar(props) {
             <div className="categories-item" href="/sports-nutrition">
               <p>SPORTS NUTRITION</p>
               <div className="sports-nutrition-dropdown">
-                <SportsNutritionDD/>
+                <GenericDD jsonFile={jsonFile}/>
               </div>
             </div>
             <div className="categories-item" href="/healthy-foods">

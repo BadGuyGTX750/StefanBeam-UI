@@ -6,7 +6,9 @@ export default function SportsNutritionDD() {
 
   const jsonFile = appsettings.categories["SPORTS NUTRITION"];
 
+  const myInstance = new GenericDD(jsonFile)
+  
   return(
-    new GenericDD(jsonFile)
+    myInstance
   );
 }
