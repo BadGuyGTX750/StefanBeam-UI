@@ -9,6 +9,7 @@ import Button1 from "../../components/button/Button1";
 import validateEmail from "../../services/ValidateEmail";
 import LoadingSpinner from "../../components/spinner/Spinner";
 import api_login from "../../api/auth/api_login";
+import GetProductFamily from "../../components/utils/GetProductFamily";
 
 export default function LoginPage(props) {
     const [email, setE] = useState("");
@@ -68,7 +69,7 @@ export default function LoginPage(props) {
         { isLoading && <LoadingSpinner/> }
 
         <div className="navbar">
-          <Navbar/>
+          <Navbar GetProductFamily={ GetProductFamily }/>
         </div>
         
         <div className="login-page-title">

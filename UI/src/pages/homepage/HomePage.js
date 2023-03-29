@@ -3,12 +3,14 @@ import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import "../../components/footer/Footer.css";
 import "../../components/navbar/Navbar.css";
+import GetProductFamily from "../../components/utils/GetProductFamily";
 
 function HomePage(props) {
+
     return(
       <div className="content">
         <div className="navbar">
-          <Navbar/>
+          <Navbar GetProductFamily={ GetProductFamily }/>
         </div>
           
         <div className="spotlight">

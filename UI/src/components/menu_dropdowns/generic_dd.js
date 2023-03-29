@@ -1,14 +1,15 @@
-
-import { render } from "@testing-library/react";
 import React from "react";
 import "./generic_dd.css"
 
 export default class GenericDD extends React.Component{
 
   constructor(props) {
-    super()
+    super(props)
     this.jsonFile = props.jsonFile
+    this.GetProductFamily = props.GetProductFamily
     this.pairs = []
+    this.implemented = false
+    this.returnable = null
   }
 
   dfs(file, level) {
@@ -27,25 +28,27 @@ export default class GenericDD extends React.Component{
 
   BuildDropDownMenu() {
     this.pairs = []
-    var menuList = this.dfs(this.jsonFile, 0);
-    var returnable = menuList.map((item) => {
-      return(
-        <div key={Math.random()} className={"gen-dd-item-" + item[1]}>{item[0]}</div>
-      )
-    })
+    const menuList = this.dfs(this.jsonFile, 0);
+    const returnable = menuList.map((item) => (
+        <div key={item[0]} className={"gen-dd-item-" + item[1]}>{item[0]}</div>
+    ))
+    // No more double call of this method on hover
+    this.returnable = returnable;
+    this.implemented = true;
     return returnable
   }
 
-  // set up the drop-down menus
+
+  // set up the drop-down menus to have click listeners
   ConfigureDropDownMenu() {
     for (var i = 0; i < 5; i++) {
-      var gen_dd_item = document.getElementsByClassName("gen-dd-item-"+i)
-      console.log(gen_dd_item.length)
+      const gen_dd_item = document.getElementsByClassName("gen-dd-item-"+i)
+      //console.log(gen_dd_item.length)
       if (gen_dd_item.length > 0) {
         //console.log(gen_dd_item.length)
         for (var j = 0; j < gen_dd_item.length; j++) {
           gen_dd_item[j].addEventListener('click', e => {
-            console.log(e.target.textContent)
+            this.GetProductFamily(e.target.textContent)
           })
         }
       }
@@ -59,7 +62,8 @@ export default class GenericDD extends React.Component{
   render() {
     return(
       <div className="gen-dd">
-        { this.BuildDropDownMenu() }
+        { this.implemented && this.returnable }
+        { !this.implemented && this.BuildDropDownMenu() }
       </div>
     );
   }

@@ -1,40 +1,68 @@
-import React, { useRef, useState, Component } from "react";
+import React, { useRef, useState } from "react";
 import AuthMenuNLI from "../authmenu/AuthMenuNLI";
 import AuthMenuLI from "../authmenu/AuthMenuLI";
-import "../authmenu/AuthMenuNLI.css"
-import "../authmenu/AuthMenuLI.css"
-import SportsNutritionDD from "../menu_dropdowns/sports_nutrition_dd";
 import appsettings from "../../appsettings.json"
 import GenericDD from "../menu_dropdowns/generic_dd";
+import "../authmenu/AuthMenuNLI.css"
+import "../authmenu/AuthMenuLI.css"
 
 export default function Navbar(props) {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const [isDroppedDown, setIsDroppedDown] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isDroppedDown, setIsDroppedDown] = useState(false);
     const timeoutRef = useRef(null);
 
-    const jsonFile = appsettings.categories["SPORTS NUTRITION"];
 
-    // set up the drop-down menus
-    function ConfigureDropDownMenu() {
-      for (var i = 0; i < 5; i++) {
-        var gen_dd_item = document.getElementsByClassName("gen-dd-item-"+i)
-        console.log(gen_dd_item.length)
-        if (gen_dd_item.length > 0) {
-          //console.log(gen_dd_item.length)
-          for (var j = 0; j < gen_dd_item.length; j++) {
-            //console.log(gen_dd_item[j])
-          }
-        }
-      }
+    // Sports Nutrition Dropdown Setup
+    const jsonFileSN = appsettings.categories["SPORTS NUTRITION"];
+    const [isDroppedDownSN, setIsDroppedDownSN] = useState(false)
+
+    const HandleMouseEnterSN = () => {
+      setIsDroppedDownSN(true);
+    }
+    const HandleMouseLeaveSN = () => {
+      setIsDroppedDownSN(false);
     }
 
-    const HandleMouseEnter = () => {
+    // Healthy Foods Dropdown Setup
+    const jsonFileHF = appsettings.categories["HEALTHY FOODS"];
+    const [isDroppedDownHF, setIsDroppedDownHF] = useState(false);
+
+    const HandleMouseEnterHF = () => {
+      setIsDroppedDownHF(true);
+    }
+    const HandleMouseLeaveHF = () => {
+      setIsDroppedDownHF(false);
+    }
+
+    // Clothing Dropdown Setup
+    const jsonFileC = appsettings.categories["CLOTHING"];
+    const [isDroppedDownC, setIsDroppedDownC] = useState(false);
+
+    const HandleMouseEnterC = () => {
+      setIsDroppedDownC(true);
+    }
+    const HandleMouseLeaveC = () => {
+      setIsDroppedDownC(false);
+    }
+
+    // Workout Accessories Dropdown Setup
+    const jsonFileWA = appsettings.categories["WORKOUT ACCESSORIES"];
+    const [isDroppedDownWA, setIsDroppedDownWA] = useState(false);
+
+    const HandleMouseEnterWA = () => {
+      setIsDroppedDownWA(true);
+    }
+    const HandleMouseLeaveWA = () => {
+      setIsDroppedDownWA(false);
+    }
+
+    const HandleMouseEnterAuth = () => {
       clearTimeout(timeoutRef.current);
       IsCookiePresent();
       setIsDroppedDown(true);
     }
 
-    const HandleMouseLeave = () => {
+    const HandleMouseLeaveAuth = () => {
       timeoutRef.current = setTimeout(() => {
         setIsDroppedDown(false);
       }, 500)
@@ -66,7 +94,7 @@ export default function Navbar(props) {
             </a>
           </div>
           <div className="auth-cart">
-            <div className="auth" onMouseEnter={HandleMouseEnter} onMouseLeave={HandleMouseLeave}>
+            <div className="auth" onMouseEnter={HandleMouseEnterAuth} onMouseLeave={HandleMouseLeaveAuth}>
               <img src={require("../../images/profile-icon.png")} alt="authentication" height="30"></img>
               <div className="auth-dropdown">
                 {!isLoggedIn && isDroppedDown && <AuthMenuNLI/>}
@@ -80,20 +108,29 @@ export default function Navbar(props) {
         </div>
 
         <div className="categories">
-            <div className="categories-item" href="/sports-nutrition">
+            <div className="categories-item" onMouseEnter={HandleMouseEnterSN} onMouseLeave={HandleMouseLeaveSN}>
               <p>SPORTS NUTRITION</p>
               <div className="sports-nutrition-dropdown">
-                <GenericDD jsonFile={jsonFile}/>
+                { isDroppedDownSN && <GenericDD jsonFile={jsonFileSN} GetProductFamily={props.GetProductFamily}/> }
               </div>
             </div>
-            <div className="categories-item" href="/healthy-foods">
+            <div className="categories-item" onMouseEnter={HandleMouseEnterHF} onMouseLeave={HandleMouseLeaveHF}>
               <p>HEALTHY FOODS</p>
+              <div className="healthy-foods-dropdown">
+                { isDroppedDownHF && <GenericDD jsonFile={jsonFileHF} GetProductFamily={props.GetProductFamily}/> }
+              </div>
             </div>
-            <div className="categories-item" href="/clothing">
+            <div className="categories-item" onMouseEnter={HandleMouseEnterC} onMouseLeave={HandleMouseLeaveC}>
               <p>CLOTHING</p>
+              <div className="clothing-dropdown">
+                { isDroppedDownC && <GenericDD jsonFile={jsonFileC} GetProductFamily={props.GetProductFamily}/> }
+              </div>
             </div>
-            <div className="categories-item" href="/workout-accessories">
+            <div className="categories-item" onMouseEnter={HandleMouseEnterWA} onMouseLeave={HandleMouseLeaveWA}>
               <p>WORKOUT ACCESSORIES</p>
+              <div className="workout-accessories-dropdown">
+                { isDroppedDownWA && <GenericDD jsonFile={jsonFileWA} GetProductFamily={props.GetProductFamily}/> }
+              </div>
             </div>
         </div>
       </div>

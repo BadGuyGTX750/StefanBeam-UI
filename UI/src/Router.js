@@ -4,9 +4,31 @@ import HomePage from "./pages/homepage/HomePage";
 import LoginPage from "./pages/loginpage/LoginPage";
 import RegisterPage from "./pages/registerpage/RegisterPage";
 import ForgotPasswordPage from "./pages/forgotpasswordpage/ForgotPasswordPage";
+import ProductsPage from "./pages/productspage/ProductsPage";
+import appsettings from "./appsettings.json"
 
 function Router(props) {
-  const router = createBrowserRouter([
+
+  const jsonFileSN = appsettings.categories["SPORTS NUTRITION"];
+  const jsonFileHF = appsettings.categories["HEALTHY FOODS"];
+  const jsonFileC = appsettings.categories["CLOTHING"];
+  const jsonFileWA = appsettings.categories["WORKOUT ACCESSORIES"];
+
+  function dfs(file, level) {
+    if (typeof file === 'string') {
+      this.pairs.push([file, level/2])
+      return
+    }
+    var data = Object.keys(file)
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].length > 1)
+        this.pairs.push([data[i], level/2])
+      this.dfs(file[data[i]], level + 1)
+    }
+    return this.pairs
+  }
+
+  var router = createBrowserRouter([
     {
       path: "",
       element: 
@@ -29,38 +51,10 @@ function Router(props) {
       </div>,
     },
     {
-      path: "/sports-nutrition",
+      path:"/products",
       element: 
       <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path:"/healthy-foods",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path:"/clothing",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path:"/workout-accessories",
-      element: 
-      <div>
-        <HomePage/>
-      </div>,
-    },
-    {
-      path:"/auth",
-      element: 
-      <div>
-        <HomePage/>
+        <ProductsPage/>
       </div>,
     },
     {

@@ -9,6 +9,7 @@ import Button1 from "../../components/button/Button1";
 import validateEmail from "../../services/ValidateEmail";
 import api_register from "../../api/auth/api_register";
 import LoadingSpinner from "../../components/spinner/Spinner";
+import GetProductFamily from "../../components/utils/GetProductFamily";
 
 export default function RegisterPage(props) {
     const [firstName, setFN] = useState("");
@@ -120,7 +121,7 @@ export default function RegisterPage(props) {
         { isLoading && <LoadingSpinner/> }
 
         <div className="navbar">
-          <Navbar/>
+          <Navbar GetProductFamily={ GetProductFamily }/>
         </div>
 
         <div className="register-page-title">

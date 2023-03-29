@@ -9,6 +9,7 @@ import api_resetPassword from "../../api/auth/api_resetPasswordRequest";
 import "../../components/footer/Footer.css";
 import "../../components/navbar/Navbar.css";
 import "../../components/textbox/Textbox1.css";
+import GetProductFamily from "../../components/utils/GetProductFamily";
 
 export default function LoginPage(props) {
     const [email, setE] = useState("");
@@ -82,7 +83,7 @@ export default function LoginPage(props) {
         { isLoading && <LoadingSpinner/> }
 
         <div className="navbar">
-          <Navbar/>
+          <Navbar GetProductFamily={ GetProductFamily }/>
         </div>
 
         <div className="fpp">

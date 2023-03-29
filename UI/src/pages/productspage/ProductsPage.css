@@ -1,0 +1,17 @@
+.pp-products-section {
+    width: 1000px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.pp-left-menu {
+    background-color: antiquewhite;
+    width: 235px;
+}
+
+.pp-right-products-section {
+    background-color: grey;
+    width: 765px;
+}
