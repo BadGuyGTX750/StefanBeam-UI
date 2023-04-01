@@ -32,12 +32,13 @@ function Router(props) {
     var menuList = dfs(jsonFile)
     menuList.map(item => {
       item = item.split(',').join('')
+      item = item.split(' ').join('-')
       var route = 
       {
-        path: '/' + item.split(' ').join('-'),
+        path: '/' + item,
         element: 
         <div>
-          <ProductsPage/>
+          <ProductsPage productFamily={item}/>
         </div>,
       }
       return routes.push(route)

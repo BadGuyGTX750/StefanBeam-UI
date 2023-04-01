@@ -14,4 +14,27 @@
 .pp-right-products-section {
     background-color: grey;
     width: 765px;
+    margin-bottom: 100px;
+}
+
+.pp-product-family {
+    background-color: azure;
+    width: 765px;
+    height: 60px;
+}
+
+.pp-product-family h2 {
+    padding-left: 20px;
+    padding-top: 18px;
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.pp-right-products-prods {
+    margin-top: 20px;
+    background-color: grey;
+    width: 765px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
 }

@@ -1,0 +1,29 @@
+.product-card {
+  background-color: aquamarine;
+  width: 255px;
+  height: 340px;
+}
+
+.product-card-image {
+  background-color: grey;
+  width: 220px;
+  height: 210px;
+  margin: auto;
+  margin-top: 8px;
+}
+
+.product-card-title {
+  background-color: grey;
+  width: 220px;
+  height: 60px;
+  margin: auto;
+  margin-top: 8px;
+}
+
+.product-card-price {
+  background-color: grey;
+  width: 220px;
+  height: 30px;
+  margin: auto;
+  margin-top: 8px;
+}
