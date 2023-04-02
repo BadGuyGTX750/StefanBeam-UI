@@ -1,11 +1,16 @@
 import React from "react";
-import "./product_card.css"
+import "./product_card.css";
+import api_photo_getByProductName from "../../api/photo/api_photo_getByProductName";
 
 export default function ProductCard(props) {
 
   var productTitle = props.productTitle
-  productTitle = productTitle.split('-').join(' ').split('&').join(' ')
+  var title = productTitle.split('-').join(' ').split('&').join(' ')
+
   var price = props.price
+
+  //var photoAtt = api_photo_getByProductName(productTitle)
+  //console.log(photoAtt)
 
   return (
     <div className="product-card">
@@ -15,7 +20,7 @@ export default function ProductCard(props) {
       </div>
 
       <div className="product-card-title">
-        <h3> { productTitle } </h3>
+        <h3> { title } </h3>
       </div>
 
       <div className="product-card-price">
