@@ -1,10 +1,10 @@
 import axios from "axios";
 import appsettings from "../../appsettings.json"
 
-export default async function api_products_getByCategoryName(name) {
+export default async function api_product_getFlavorQuantitiesByProductName(name) {
   var serverUrl = appsettings.serverUrl;
   return await axios.get(
-    serverUrl + "/api/product/getByCategoryName?categoryName=" + name,
+    serverUrl + "/api/product/getFlavorQuantitiesByProductName?productName=" + name,
     {withCredentials: true}
   )
   .then(response => response.data)

@@ -4,12 +4,12 @@ import Navbar from "../../components/navbar/Navbar";
 import ProductCard from "../../components/product_card/product_card";
 import "../../components/footer/Footer.css";
 import "../../components/navbar/Navbar.css";
-import "../../api/subcategories/api_subc_getByParentName"
-import "../../api/subcategories/api_subc_getByName"
 import api_subc_getByName from "../../api/subcategories/api_subc_getByName";
 import GetProductFamily from "../../components/utils/GetProductFamily";
 import api_subc_getByParentName from "../../api/subcategories/api_subc_getByParentName";
-import api_products_getByCategoryName from "../../api/products/api_product_getByCategoryName";
+import api_product_getByCategoryName from "../../api/product/api_product_getByCategoryName";
+import api_product_getFlavorQuantitiesByProductName from "../../api/product/api_product_getFlavorQuantitiesByProductName";
+import api_product_getWeightPricesByProductName from "../../api/product/api_product_getWeightPricesByProductName";
 
 function ProductsPage(props) {
 
@@ -49,9 +49,14 @@ function ProductsPage(props) {
     async function GetThemAllProds() {
       await GetThemAllSubcs()
       for (var i = 0; i < subCs.length; i++) {
-        var pdcts = await api_products_getByCategoryName(subCs[i])
+        var pdcts = await api_product_getByCategoryName(subCs[i])
         if (pdcts != null) {
           for (var j = 0; j < pdcts.length; j++) {
+            console.log(pdcts[j].name)
+            var weightPrices = await api_product_getWeightPricesByProductName(pdcts[j].name)
+            var flavorQuantities = await api_product_getFlavorQuantitiesByProductName(pdcts[j].name)
+            pdcts[j].weight_price = weightPrices
+            pdcts[j].flavor_quantity = flavorQuantities
             prods.push(pdcts[j])
           }
         }
