@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import ProductCard from "../../components/product_card/product_card";
@@ -13,20 +13,22 @@ import api_product_getWeightPricesByProductName from "../../api/product/api_prod
 
 function ProductsPage(props) {
 
-    var prodFam = props.productFamily
+    const [prodsHtml, setProdsHtml] = useState(null);
 
+    var prodFam = props.productFamily
     var subCs = []
     var prods = []
 
     async function GetBottomSubcategories(prodFamName) {
       var subCsTmp = await api_subc_getByParentName(prodFamName)
-      if (subCsTmp == null)
+      if (subCsTmp == null) {
         return
+      }
       for (var i = 0; i < subCsTmp.length; i++) {
         if (subCsTmp[i].isBottom === true) {
           subCs.push(subCsTmp[i].name)
           continue
-        } 
+        }
         GetBottomSubcategories(subCsTmp[i].name)
       }
     }
@@ -41,7 +43,7 @@ function ProductsPage(props) {
     }
 
     async function GetThemAllSubcs() {
-      if (!await GetInitialProdFamily(prodFam)) {
+      if (await GetInitialProdFamily(prodFam)) {
         await GetBottomSubcategories(prodFam)
       }
     }
@@ -52,7 +54,6 @@ function ProductsPage(props) {
         var pdcts = await api_product_getByCategoryName(subCs[i])
         if (pdcts != null) {
           for (var j = 0; j < pdcts.length; j++) {
-            console.log(pdcts[j].name)
             var weightPrices = await api_product_getWeightPricesByProductName(pdcts[j].name)
             var flavorQuantities = await api_product_getFlavorQuantitiesByProductName(pdcts[j].name)
             pdcts[j].weight_price = weightPrices
@@ -63,9 +64,18 @@ function ProductsPage(props) {
       }
     }
 
-    GetThemAllProds()
+    async function GetProductCards() {
+      console.log("DAAAAA")
+      if (prodsHtml != null)
+        return
+      await GetThemAllProds()
+      const returnable = prods.map((item) => (
+        <div key={item.name}> <ProductCard/> </div>
+      ))
+      setProdsHtml(returnable)
+    }
 
-    console.log(prods)
+    GetProductCards()
 
     return(
       <div className="content">
@@ -85,13 +95,7 @@ function ProductsPage(props) {
               </div>
 
               <div className="pp-right-products-prods">
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
+                { prodsHtml }
               </div>
               
             </div>
