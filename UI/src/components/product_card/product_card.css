@@ -1,5 +1,5 @@
 .product-card {
-  background-color: aquamarine;
+  background-color: lightgray;
   display: flex;
   flex-direction: column;
   width: 255px;
@@ -7,7 +7,7 @@
 }
 
 .product-card-image {
-  background-color: blue;
+  background-color: inherit;
   width: 220px;
   height: 210px;
   margin: auto;
@@ -15,7 +15,7 @@
 }
 
 .product-card-title {
-  background-color: blue;
+  background-color: inherit;
   width: 220px;
   height: 40px;
   margin: auto;
@@ -29,7 +29,7 @@
 }
 
 .product-card-price {
-  background-color: blue;
+  background-color: inherit;
   width: 220px;
   height: 25px;
   margin: auto;

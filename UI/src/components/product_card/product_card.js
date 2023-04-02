@@ -4,6 +4,7 @@ import "./product_card.css"
 export default function ProductCard(props) {
 
   var productTitle = props.productTitle
+  productTitle = productTitle.split('-').join(' ').split('&').join(' ')
   var price = props.price
 
   return (

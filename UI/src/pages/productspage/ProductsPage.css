@@ -12,7 +12,7 @@
 }
 
 .pp-right-products-section {
-    background-color: grey;
+    background-color: white;
     width: 765px;
     padding-bottom: 100px;
 }
@@ -32,7 +32,7 @@
 
 .pp-right-products-prods {
     margin-top: 20px;
-    background-color: grey;
+    background-color: white;
     width: 765px;
     display: flex;
     justify-content: flex-start;
