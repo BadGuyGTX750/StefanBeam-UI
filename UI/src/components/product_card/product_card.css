@@ -1,29 +1,44 @@
 .product-card {
   background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
   width: 255px;
-  height: 340px;
+  height: 300px;
 }
 
 .product-card-image {
-  background-color: grey;
+  background-color: blue;
   width: 220px;
   height: 210px;
   margin: auto;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .product-card-title {
-  background-color: grey;
+  background-color: blue;
   width: 220px;
-  height: 60px;
+  height: 40px;
   margin: auto;
-  margin-top: 8px;
+  margin-top: 4px;
+}
+
+.product-card-title h3 {
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 5px;
 }
 
 .product-card-price {
-  background-color: grey;
+  background-color: blue;
   width: 220px;
-  height: 30px;
+  height: 25px;
   margin: auto;
-  margin-top: 8px;
+  margin-top: 4px;
+}
+
+.product-card-price h3 {
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 5px;
+  color: #ff4100
 }

@@ -11,7 +11,7 @@ import api_product_getByCategoryName from "../../api/product/api_product_getByCa
 import api_product_getFlavorQuantitiesByProductName from "../../api/product/api_product_getFlavorQuantitiesByProductName";
 import api_product_getWeightPricesByProductName from "../../api/product/api_product_getWeightPricesByProductName";
 
-function ProductsPage(props) {
+export default function ProductsPage(props) {
 
     const [prodsHtml, setProdsHtml] = useState(null);
 
@@ -43,7 +43,7 @@ function ProductsPage(props) {
     }
 
     async function GetThemAllSubcs() {
-      if (await GetInitialProdFamily(prodFam)) {
+      if (!await GetInitialProdFamily(prodFam)) {
         await GetBottomSubcategories(prodFam)
       }
     }
@@ -65,12 +65,11 @@ function ProductsPage(props) {
     }
 
     async function GetProductCards() {
-      console.log("DAAAAA")
       if (prodsHtml != null)
         return
       await GetThemAllProds()
       const returnable = prods.map((item) => (
-        <div key={item.name}> <ProductCard/> </div>
+        <div key={item.name}> <ProductCard productTitle={item.name} price={item.weight_price[0].price}/> </div>
       ))
       setProdsHtml(returnable)
     }
@@ -107,5 +106,3 @@ function ProductsPage(props) {
       </div>
     )
 }
-
-export default ProductsPage
