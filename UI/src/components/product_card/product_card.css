@@ -1,9 +1,9 @@
 .product-card {
-  background-color: lightgray;
+  background-color: white;
   display: flex;
   flex-direction: column;
   width: 255px;
-  height: 300px;
+  height: 290px;
 }
 
 .product-card-image {
@@ -16,7 +16,7 @@
 
 .product-card-title {
   background-color: inherit;
-  width: 220px;
+  width: 230px;
   height: 40px;
   margin: auto;
   margin-top: 4px;
@@ -24,8 +24,12 @@
 
 .product-card-title h3 {
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   padding: 5px;
+}
+
+.product-card:hover .product-card-title h3{
+  text-decoration: underline;
 }
 
 .product-card-price {
@@ -33,7 +37,7 @@
   width: 220px;
   height: 25px;
   margin: auto;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .product-card-price h3 {
