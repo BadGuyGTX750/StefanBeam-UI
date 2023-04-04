@@ -29,7 +29,7 @@ export default function ProductsPage(props) {
           subCs.push(subCsTmp[i].name)
           continue
         }
-        GetBottomSubcategories(subCsTmp[i].name)
+        await GetBottomSubcategories(subCsTmp[i].name)
       }
     }
 

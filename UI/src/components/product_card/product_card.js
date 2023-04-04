@@ -17,9 +17,7 @@ export default function ProductCard(props) {
     const photoAtt = await api_photo_getByProductName(productTitle)
     const photo = await api_photo_download(photoAtt.name, photoAtt.ext.substring(1))
     const imageSRC = URL.createObjectURL(new Blob([photo], {type: "image/jpg"}))
-    console.log(photo)
     setDownloadP(imageSRC)
-
   }
 
   GetProductPhoto()
