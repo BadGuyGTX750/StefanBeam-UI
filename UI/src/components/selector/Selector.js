@@ -5,8 +5,11 @@ export default function Selector(props) {
 
   const [options, setOptions] = useState(null);
 
+  const ChangeSelection = (selectObject) => {
+    props.method(selectObject.target.value)
+  }
+
   async function GetOptions() {
-    console.log(props.ddItems)
     if (options != null)
       return
     var ddItems = await props.ddItems
@@ -25,7 +28,8 @@ export default function Selector(props) {
   return(
     <div>
       <div className="selector-box">
-        <select>
+        <select onChange={ChangeSelection}>
+          <option disabled selected value> -- select an option -- </option>
           {options}
         </select>
       </div>      

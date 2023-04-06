@@ -7,7 +7,7 @@
     margin:auto;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     background-color: bisque;
 }
 
@@ -24,4 +24,8 @@
     font-size: 12px;
     font-family: sans-serif;
     font-weight: bold;
+}
+
+.add-product-submit {
+    margin-top: 25px;
 }
