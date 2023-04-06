@@ -8,6 +8,7 @@ import Textbox1 from "../../components/textbox/Textbox1";
 import Selector from "../../components/selector/Selector";
 import api_subc_getBottom from "../../api/subcategories/api_subc_getBottom";
 import Button1 from "../../components/button/Button1";
+import FlavorQuantity from "../../components/product_parameters/FlavorQuantity";
 
 export default function AddProductPage(props) {
     const [showErrorPN, setErrorPN] = useState(false)
@@ -116,6 +117,11 @@ export default function AddProductPage(props) {
             <p>Select the subcategory of the product:</p>
             <Selector method={SetSubcategory} ddItems={GetBottom()}/>
             {showErrorSubC && (<div className="add-product-error"><p>please select a subcategory</p></div>)}
+          </div>
+
+          <div className="add-product-WP">
+            <p>Add flavor and quantity pairs:</p>
+            <FlavorQuantity/>
           </div>
 
           <div className="add-product-submit" onClick={HandleAddProduct}>

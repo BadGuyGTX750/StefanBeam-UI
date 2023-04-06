@@ -1,0 +1,14 @@
+.text-box-register-2 input {
+    min-width: 242px;
+    min-height: 23px;
+    border: solid 2px black;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.text-box-register-2 input:focus {
+    border: solid 2px grey;
+    outline: none;
+    border-radius: 5%;
+}
+
