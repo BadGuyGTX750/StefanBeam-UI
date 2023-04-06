@@ -6,6 +6,7 @@ import RegisterPage from "./pages/registerpage/RegisterPage";
 import ForgotPasswordPage from "./pages/forgotpasswordpage/ForgotPasswordPage";
 import ProductsPage from "./pages/productspage/ProductsPage";
 import appsettings from "./appsettings.json"
+import AddProductPage from "./pages/addproductpage/AddProductPage";
 
 function Router(props) {
 
@@ -112,6 +113,13 @@ function Router(props) {
         element: 
         <div>
           <HomePage/>
+        </div>,
+      },
+      {
+        path:"/editor/add-product/",
+        element: 
+        <div>
+          <AddProductPage/>
         </div>,
       },
     )

@@ -7,6 +7,7 @@ import "./pages/registerpage/RegisterPage.css";
 import "./pages/loginpage/LoginPage.css";
 import "./pages/forgotpasswordpage/ForgotPasswordPage.css";
 import "./pages/productspage/ProductsPage.css";
+import "./pages/addproductpage/AddProductPage.css"
 
 const appRouter = Router()
 

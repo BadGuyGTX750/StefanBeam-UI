@@ -5,7 +5,7 @@ import "../../components/footer/Footer.css";
 import "../../components/navbar/Navbar.css";
 import GetProductFamily from "../../components/utils/GetProductFamily";
 
-function HomePage(props) {
+export default function HomePage(props) {
 
     return(
       <div className="content">
@@ -27,5 +27,3 @@ function HomePage(props) {
       </div>
     )
 }
-
-export default HomePage

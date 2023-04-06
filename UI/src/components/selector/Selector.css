@@ -1,0 +1,12 @@
+
+.selector-box select {
+    height: 30px;
+    width: 200px;
+    border: solid 2px black;
+}
+
+.selector-box select:focus {
+    border: solid 2px grey;
+    outline: none;
+    border-radius: 5%;
+}
