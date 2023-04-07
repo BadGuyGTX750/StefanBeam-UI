@@ -71,9 +71,18 @@ export default function FlavorQuantityComp(props) {
 
       { renderedPairs }
 
+      <div className="flavor-quantity-add-remove-pair">
+
+      <div className="flavor-quantity-remove-pair">
+        <img src={require("../../images/remove-pair-icon.png")} alt="remove-flavor-quantity-pair" height="30" 
+            onClick={AddPair}></img>
+      </div>
+
       <div className="flavor-quantity-add-pair">
         <img src={require("../../images/add-pair-icon.png")} alt="add-flavor-quantity-pair" height="30" 
             onClick={AddPair}></img>
+      </div>
+
       </div>
 
     </div>
