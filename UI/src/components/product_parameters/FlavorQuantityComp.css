@@ -33,7 +33,7 @@
 .flavor-quantity-remove-pair {
   background-color: inherit;
   margin-top: 10px;
-  padding-left: 176px;
+  padding-left: 376px;
   padding-top: 3px;
 }
 
@@ -51,6 +51,6 @@
 .flavor-quantity-line-delimiter {
   margin-top: 15px;
   height: 1px;
-  width: 500px;
+  width: 480px;
   background-color: black;
 }

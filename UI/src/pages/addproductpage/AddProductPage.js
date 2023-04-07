@@ -109,25 +109,25 @@ export default function AddProductPage(props) {
           </div>
 
           <div className="add-product-SD">
-            <p>Short Description</p>
+            <p>Short Description (Optional)</p>
             <Textbox1 placeholderD="" method={HandleShortDescriptionChange}/>
             {showErrorSD && (<div className="add-product-error"><p>please enter a valid short description - max 25 chars</p></div>)}
           </div>
 
           <div className="add-product-SD">
-            <p>Long Description</p>
+            <p>Long Description (Optional)</p>
             <Textbox1 placeholderD="" method={HandleLongDescriptionChange}/>
             {showErrorLD && (<div className="add-product-error"><p>please enter a valid long description - max 100 chars</p></div>)}
           </div>
 
           <div className="add-product-SC">
-            <p>Select the subcategory of the product:</p>
+            <p>Select the subcategory of the product: **</p>
             <Selector method={SetSubcategory} ddItems={GetBottom()}/>
             {showErrorSubC && (<div className="add-product-error"><p>please select a subcategory</p></div>)}
           </div>
 
           <div className="add-product-WP">
-            <p>Add flavor and quantity pairs:</p>
+            <p>Add flavor and quantity pairs (T-Shirt size / quantity): (Optional)</p>
             <FlavorQuantityComp/>
           </div>
 
