@@ -1,7 +1,6 @@
 
 
 .add-product-form {
-    height: 1000px;
     width: 1000px;
     min-height: 70vh;
     margin:auto;
@@ -40,6 +39,7 @@
 
 .add-product-submit {
     margin-top: 25px;
+    margin-bottom: 100px;
 }
 
 .add-product-SC {
@@ -51,5 +51,6 @@
 }
 
 .add-product-WP p {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }

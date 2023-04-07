@@ -1,4 +1,8 @@
 
+.flavor-quantity-pair {
+  margin-top: 15px;
+}
+
 .flavor-quantity-pair-quantity {
   margin-top: 10px;
 }
@@ -22,8 +26,8 @@
 }
 
 .flavor-quantity-line-delimiter {
-  margin-top: 11px;
-  height: 2px;
-  width: 300px;
+  margin-top: 15px;
+  height: 1px;
+  width: 500px;
   background-color: black;
 }

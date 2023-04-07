@@ -44,7 +44,7 @@ export default function FlavorQuantityComp(props) {
 
   const GetDefaultPair = () => {
     return(
-      <div key='flavor-quantity' className="flavor-quantity-pair">
+      <div key={'flavor-quantity' + Math.random()} className="flavor-quantity-pair">
 
         <div className="flavor-quantity-pair-flavor">
           <Selector2 ddItems={ flavorsList } method={ HandleFlavorChange }/>
@@ -61,10 +61,7 @@ export default function FlavorQuantityComp(props) {
   }
 
   const AddPair = () => {
-    var pairs = renderedPairs
-    pairs.push(GetDefaultPair())
-    console.log(pairs)
-    setRenderedPairs(pairs)
+    setRenderedPairs([...renderedPairs, GetDefaultPair()])
   }
 
   var pair = GetDefaultPair()
@@ -72,7 +69,7 @@ export default function FlavorQuantityComp(props) {
   return(
     <div>
 
-      { pair }
+      { renderedPairs }
 
       <div className="flavor-quantity-add-pair">
         <img src={require("../../images/add-pair-icon.png")} alt="add-flavor-quantity-pair" height="30" 
