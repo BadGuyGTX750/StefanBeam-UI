@@ -98,6 +98,10 @@ export default function AddProductPage(props) {
 
           <div className="add-product-form-left">
 
+          <div>
+            <h2>Add a product</h2>
+          </div>
+
           <div className="add-product-PN">
             <p>Product Name *</p>
             <Textbox1 placeholderD="" method={HandleProductNameChange}/>

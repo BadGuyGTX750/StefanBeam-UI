@@ -17,6 +17,14 @@
     background-color: inherit;
 }
 
+.add-product-form-left h2 {
+    font-size: 19px;
+    font-family: sans-serif;
+    color: #ff4100;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
 .add-product-form-right {
     width: 500px;
     background-color: inherit;
