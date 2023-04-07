@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Selector.css"
+import "./Selector2.css"
 
-export default function Selector(props) {
+export default function Selector2(props) {
 
   const [options, setOptions] = useState(null);
 
@@ -27,9 +27,8 @@ export default function Selector(props) {
 
   return(
     <div>
-      <div className="selector-box">
-        <select defaultValue="" onChange={ChangeSelection}>
-          <option disabled value=""> -- select an option -- </option>
+      <div className="selector-box-2">
+        <select onChange={ChangeSelection}>
           {options}
         </select>
       </div>      

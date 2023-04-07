@@ -1,0 +1,29 @@
+
+.flavor-quantity-pair-quantity {
+  margin-top: 10px;
+}
+
+.flavor-quantity-add-pair img {
+  background-color: none;
+  border-radius: 50%;
+  transition: 0.4s ease-out;
+}
+
+.flavor-quantity-add-pair {
+  background-color: inherit;
+  margin-top: 10px;
+  padding-left: 210px;
+  padding-top: 3px;
+}
+
+.flavor-quantity-add-pair img:hover {
+  background-color: #ff4100;
+  transition: 0.3s ease-in;
+}
+
+.flavor-quantity-line-delimiter {
+  margin-top: 11px;
+  height: 2px;
+  width: 300px;
+  background-color: black;
+}

@@ -8,7 +8,7 @@ import Textbox1 from "../../components/textbox/Textbox1";
 import Selector from "../../components/selector/Selector";
 import api_subc_getBottom from "../../api/subcategories/api_subc_getBottom";
 import Button1 from "../../components/button/Button1";
-import FlavorQuantity from "../../components/product_parameters/FlavorQuantity";
+import FlavorQuantityComp from "../../components/product_parameters/FlavorQuantityComp";
 
 export default function AddProductPage(props) {
     const [showErrorPN, setErrorPN] = useState(false)
@@ -95,6 +95,9 @@ export default function AddProductPage(props) {
 
         <div className="add-product-form">
 
+
+          <div className="add-product-form-left">
+
           <div className="add-product-PN">
             <p>Product Name *</p>
             <Textbox1 placeholderD="" method={HandleProductNameChange}/>
@@ -121,11 +124,18 @@ export default function AddProductPage(props) {
 
           <div className="add-product-WP">
             <p>Add flavor and quantity pairs:</p>
-            <FlavorQuantity/>
+            <FlavorQuantityComp/>
           </div>
 
           <div className="add-product-submit" onClick={HandleAddProduct}>
             <Button1 text="ADD PRODUCT"/>
+          </div>
+
+          </div>
+
+
+          <div className="add-product-form-right">
+
           </div>
 
         </div>

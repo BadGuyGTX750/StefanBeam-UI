@@ -1,5 +1,5 @@
 
-.selector-box select {
+.selector-box-2 select {
     height: 30px;
     width: 250px;
     border: solid 2px black;
@@ -7,7 +7,7 @@
     font-size: 14px;
 }
 
-.selector-box select:focus {
+.selector-box-2 select:focus {
     border: solid 2px grey;
     outline: none;
     border-radius: 5%;

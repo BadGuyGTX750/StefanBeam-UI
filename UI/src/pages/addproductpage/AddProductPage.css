@@ -6,12 +6,24 @@
     min-height: 70vh;
     margin:auto;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: bisque;
+    flex-direction: row;
+    background-color: inherit;
 }
 
-.add-product-form p {
+.add-product-form-left {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: inherit;
+}
+
+.add-product-form-right {
+    width: 500px;
+    background-color: inherit;
+}
+
+.add-product-form-left p {
     font-size: 16px;
     font-family: sans-serif;
     padding-top: 5px;
@@ -28,4 +40,16 @@
 
 .add-product-submit {
     margin-top: 25px;
+}
+
+.add-product-SC {
+    margin-top: 20px;
+}
+
+.add-product-WP {
+    margin-top: 20px;
+}
+
+.add-product-WP p {
+    margin-bottom: 10px;
 }
