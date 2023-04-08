@@ -5,18 +5,22 @@ import "./WeightPriceComp.css";
 export default function WeightPriceComp() {
   const [renderedPairs, setRenderedPairs] = useState([])
   const [pairIndex, setPairIndex] = useState(0)
+  const maxListSize = 10
 
   const HandleNumberChange = (value) => {
     console.log(value)
   }
 
   const AddPair = () => {
-    console.log('AddPair')
-    setRenderedPairs(GetDefaultPair())
+    if (renderedPairs.length >= maxListSize)
+      return
+    setRenderedPairs([...renderedPairs, GetDefaultPair(0)])
   }
 
   const RemovePair = () => {
-    console.log('RemovePair')
+    var tmp = renderedPairs
+    tmp.pop()
+    setRenderedPairs([...tmp])
   }
 
 
