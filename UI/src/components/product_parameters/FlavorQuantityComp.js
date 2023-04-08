@@ -9,8 +9,8 @@ export default function FlavorQuantityComp(props) {
   const [pairIndex, setPairIndex] = useState(0)
   const [pairs, setPairs] = useState([])
 
-  const GetPairs = () => {
-    return props.method(pairs)
+  const GetPairs = (prs) => {
+    return props.method(prs)
   }
 
   const flavorsList = [
@@ -73,7 +73,7 @@ export default function FlavorQuantityComp(props) {
     tmp[index] = {'flavor': flavor, 'quantity': quantity}
     setPairs(tmp)
 
-    GetPairs()
+    GetPairs(pairs)
   }
 
   // Don't modify the structure of this returned HTML, unless you modify HandlePairChange() accordingly
@@ -99,11 +99,13 @@ export default function FlavorQuantityComp(props) {
   const AddPair = () => {
     if (renderedPairs.length >= flavorsListSize)
       return
+    var tmp = pairs
     setPairs([...pairs, {flavor: flavorsList[0], quantity: '100'}])
     setRenderedPairs([...renderedPairs, GetDefaultPair(pairIndex)])
     if (pairIndex < flavorsListSize) {
       setPairIndex(pairIndex + 1)
     }
+    GetPairs([...tmp, {flavor: flavorsList[0], quantity: '100'}])
   }
 
   const RemovePair = () => {
@@ -118,6 +120,7 @@ export default function FlavorQuantityComp(props) {
     if (pairIndex > 0) {
       setPairIndex(pairIndex - 1)
     }
+    GetPairs([...tmp2])
   }
 
   return(
