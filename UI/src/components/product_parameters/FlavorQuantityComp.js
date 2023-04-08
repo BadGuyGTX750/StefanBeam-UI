@@ -73,7 +73,7 @@ export default function FlavorQuantityComp(props) {
     tmp[index] = {'flavor': flavor, 'quantity': quantity}
     setPairs(tmp)
 
-    GetPairs(pairs)
+    GetPairs(tmp)
   }
 
   // Don't modify the structure of this returned HTML, unless you modify HandlePairChange() accordingly

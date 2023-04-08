@@ -22,6 +22,7 @@ export default function AddProductPage(props) {
     const [longDescription, setLD] = useState('')
     const [subcategory, setsubC] = useState('')
     const [flavorQuantities, setFQ] = useState([])
+    const [weightPrices, setWP] = useState([])
 
     function HandleProductNameChange(value) {
       setPN(value);
@@ -54,6 +55,10 @@ export default function AddProductPage(props) {
       setFQ(pairs)
     }
 
+    function HandleWeightPriceChange(pairs) {
+      setWP(pairs)
+    }
+
     function SetSubcategory(value) {
       setsubC(value)
       if (value === '') {
@@ -69,7 +74,7 @@ export default function AddProductPage(props) {
       var isValidLD = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,100}$/i.test(longDescription))
       var isValidSubC = subcategory !== ''
 
-      console.log(productName, shortDescription, longDescription, subcategory, flavorQuantities)
+      console.log(productName, shortDescription, longDescription, subcategory, flavorQuantities, weightPrices)
 
       if (!(isValidPN && isValidSD && isValidLD && isValidSubC)) {
         setErrorPN(!isValidPN)
@@ -139,7 +144,7 @@ export default function AddProductPage(props) {
 
           <div className="add-product-WP">
             <p>Add weight and price pairs (T-Shirt color / price): (Optional)</p>
-            <WeightPriceComp method={ HandleFlavorQuantityChange }/>
+            <WeightPriceComp method={ HandleWeightPriceChange }/>
           </div>
 
           <div className="add-product-submit" onClick={HandleAddProduct}>
