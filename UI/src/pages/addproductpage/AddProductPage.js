@@ -9,6 +9,7 @@ import Selector from "../../components/selector/Selector";
 import api_subc_getBottom from "../../api/subcategories/api_subc_getBottom";
 import Button1 from "../../components/button/Button1";
 import FlavorQuantityComp from "../../components/product_parameters/FlavorQuantityComp";
+import WeightPriceComp from "../../components/product_parameters/WeightPriceComp";
 
 export default function AddProductPage(props) {
     const [showErrorPN, setErrorPN] = useState(false)
@@ -131,9 +132,14 @@ export default function AddProductPage(props) {
             {showErrorSubC && (<div className="add-product-error"><p>please select a subcategory</p></div>)}
           </div>
 
-          <div className="add-product-WP">
+          <div className="add-product-FQ">
             <p>Add flavor and quantity pairs (T-Shirt size / quantity): (Optional)</p>
             <FlavorQuantityComp method={ HandleFlavorQuantityChange }/>
+          </div>
+
+          <div className="add-product-WP">
+            <p>Add weight and price pairs (T-Shirt color / price): (Optional)</p>
+            <WeightPriceComp method={ HandleFlavorQuantityChange }/>
           </div>
 
           <div className="add-product-submit" onClick={HandleAddProduct}>

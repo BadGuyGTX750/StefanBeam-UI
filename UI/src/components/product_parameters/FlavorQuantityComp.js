@@ -79,7 +79,7 @@ export default function FlavorQuantityComp(props) {
   // Don't modify the structure of this returned HTML, unless you modify HandlePairChange() accordingly
   const GetDefaultPair = (index) => {
     return(
-      <div id={'flavor-quantity-' + index} key={'flavor-quantity-' + pairIndex}
+      <div id={'flavor-quantity-' + index} key={'flavor-quantity-' + index}
             className="flavor-quantity-pair">
 
         <div className="flavor-quantity-pair-flavor">
