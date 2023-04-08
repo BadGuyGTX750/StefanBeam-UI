@@ -27,8 +27,10 @@ export default function Textbox2(props) {
   }
 
   return(
-    <div className="text-box-register-2">
-      <input type={typeD} value={value} onChange={handleChange} onBlur={handleBlur}/>
+    <div>
+      <div className="text-box-register-2">
+        <input type={typeD} value={value} onChange={handleChange} onBlur={handleBlur}/>
+      </div>
     </div>
   );
 }

@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import Selector2 from "../selector/Selector2";
 import Textbox2 from "../textbox/Textbox2";
 import "./FlavorQuantityComp.css";
-import { eventWrapper } from "@testing-library/user-event/dist/utils";
 
 export default function FlavorQuantityComp(props) {
 
   const [renderedPairs, setRenderedPairs] = useState([])
   const [pairIndex, setPairIndex] = useState(0)
+  const [pairs, setPairs] = useState([])
+
+  const GetPairs = () => {
+    return props.method(pairs)
+  }
 
   const flavorsList = [
                       'banana milkshake',
@@ -48,32 +52,35 @@ export default function FlavorQuantityComp(props) {
   }
 
   const HandlePairChange = (event) => {
-    var component = event.currentTarget
+    var component = event.target.parentElement.parentElement.parentElement.parentElement
     var componentId = component.id
     var index = componentId.split('-')[2]
 
     // not the most orthodox way, cause selector component might suffer changes,
     // but certainly the fastest way
     var flavor = component.getElementsByTagName('div')[0].firstChild.firstChild.firstChild.value;
-    if (!flavor in flavorsList) {
+    if (!flavorsList.includes(flavor)) {
       flavor = 'WARNING: no flavor'
       console.log('Selector2.js changed, adjust FlavorQuantityComp.HandlePairChange() accordingly')
     }
 
-    var quantity = component.getElementsByTagName('div')[3].firstChild.firstChild.value
-
+    var quantity = component.getElementsByTagName('div')[3].firstChild.firstChild.firstChild.value
     if (!/^[0-9]{1,3}$/i.test(quantity)) {
-      quantity = 100
+      quantity = '100'
     }
-      
-    console.log(flavor, quantity)
+
+    var tmp = pairs
+    tmp[index] = {'flavor': flavor, 'quantity': quantity}
+    setPairs(tmp)
+
+    GetPairs()
   }
 
   // Don't modify the structure of this returned HTML, unless you modify HandlePairChange() accordingly
-  const GetDefaultPair = () => {
+  const GetDefaultPair = (index) => {
     return(
-      <div id={'flavor-quantity-' + pairIndex} key={'flavor-quantity-' + pairIndex}
-            className="flavor-quantity-pair" onBlur={HandlePairChange}>
+      <div id={'flavor-quantity-' + index} key={'flavor-quantity-' + pairIndex}
+            className="flavor-quantity-pair">
 
         <div className="flavor-quantity-pair-flavor">
           <Selector2 ddItems={ flavorsList } method={ HandleFlavorChange }/>
@@ -92,25 +99,32 @@ export default function FlavorQuantityComp(props) {
   const AddPair = () => {
     if (renderedPairs.length >= flavorsListSize)
       return
-    if (pairIndex < flavorsListSize)
+    setPairs([...pairs, {flavor: flavorsList[0], quantity: '100'}])
+    setRenderedPairs([...renderedPairs, GetDefaultPair(pairIndex)])
+    if (pairIndex < flavorsListSize) {
       setPairIndex(pairIndex + 1)
-    setRenderedPairs([...renderedPairs, GetDefaultPair()])
+    }
   }
 
   const RemovePair = () => {
     var tmp = renderedPairs
     tmp.pop()
     setRenderedPairs([...tmp])
-    if (pairIndex > 0)
-      setPairIndex(pairIndex - 1)
-  }
 
-  var pair = GetDefaultPair()
+    var tmp2 = pairs
+    tmp2.pop()
+    setPairs([...tmp2])
+
+    if (pairIndex > 0) {
+      setPairIndex(pairIndex - 1)
+    }
+  }
 
   return(
     <div>
-
-      { renderedPairs }
+      <div onBlur={HandlePairChange}>
+        { renderedPairs }
+      </div>
 
       <div className="flavor-quantity-add-remove-pair">
 

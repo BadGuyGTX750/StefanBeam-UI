@@ -48,6 +48,10 @@ export default function AddProductPage(props) {
       setErrorLD(false)
     }
 
+    function HandleFlavorQuantityChange(pairs) {
+      console.log(pairs)
+    }
+
     function SetSubcategory(value) {
       setsubC(value)
       if (value === '') {
@@ -128,7 +132,7 @@ export default function AddProductPage(props) {
 
           <div className="add-product-WP">
             <p>Add flavor and quantity pairs (T-Shirt size / quantity): (Optional)</p>
-            <FlavorQuantityComp/>
+            <FlavorQuantityComp method={ HandleFlavorQuantityChange }/>
           </div>
 
           <div className="add-product-submit" onClick={HandleAddProduct}>
