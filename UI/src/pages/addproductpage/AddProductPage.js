@@ -20,6 +20,7 @@ export default function AddProductPage(props) {
     const [shortDescription, setSD] = useState('')
     const [longDescription, setLD] = useState('')
     const [subcategory, setsubC] = useState('')
+    const [flavorQuantities, setFQ] = useState([])
 
     function HandleProductNameChange(value) {
       setPN(value);
@@ -49,7 +50,7 @@ export default function AddProductPage(props) {
     }
 
     function HandleFlavorQuantityChange(pairs) {
-      console.log(pairs)
+      setFQ(pairs)
     }
 
     function SetSubcategory(value) {
@@ -67,7 +68,7 @@ export default function AddProductPage(props) {
       var isValidLD = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,100}$/i.test(longDescription))
       var isValidSubC = subcategory !== ''
 
-      console.log(productName, shortDescription, longDescription, subcategory)
+      console.log(productName, shortDescription, longDescription, subcategory, flavorQuantities)
 
       if (!(isValidPN && isValidSD && isValidLD && isValidSubC)) {
         setErrorPN(!isValidPN)
