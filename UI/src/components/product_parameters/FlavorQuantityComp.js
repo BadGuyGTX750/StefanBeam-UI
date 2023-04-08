@@ -35,6 +35,9 @@ export default function FlavorQuantityComp(props) {
                       'XXL',
                     ]
 
+  const flavorsListSize = flavorsList.length
+  console.log(flavorsListSize)
+
   var pairs = []
 
   const HandleFlavorChange = (value) => {
@@ -65,6 +68,8 @@ export default function FlavorQuantityComp(props) {
   }
 
   const AddPair = () => {
+    if (renderedPairs.length >= flavorsListSize)
+      return
     setRenderedPairs([...renderedPairs, GetDefaultPair()])
   }
 
