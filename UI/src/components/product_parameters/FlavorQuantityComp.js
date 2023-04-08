@@ -5,7 +5,6 @@ import "./FlavorQuantityComp.css";
 
 export default function FlavorQuantityComp(props) {
 
-  const [isValid, setIsValid] = useState(true)
   const [renderedPairs, setRenderedPairs] = useState([])
 
   const flavorsList = [
@@ -29,6 +28,11 @@ export default function FlavorQuantityComp(props) {
                       'watermelon',
                       'white chocolate coconut',
                       'white chocolate raspberry',
+                      'S',
+                      'M',
+                      'L',
+                      'XL',
+                      'XXL',
                     ]
 
   var pairs = []
