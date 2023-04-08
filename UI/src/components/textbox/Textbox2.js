@@ -15,11 +15,11 @@ export default function Textbox2(props) {
     var clientInput = event.target.value
     if (!REGEXVERIFY.test(clientInput)) {
       setValue(defaultV)
-      props.method(defaultV)
+      //props.method(defaultV)
       return
     } 
     setValue(clientInput)
-    props.method(event.target.value)
+    //props.method(event.target.value)
   };
 
   const handleChange = (event) => {

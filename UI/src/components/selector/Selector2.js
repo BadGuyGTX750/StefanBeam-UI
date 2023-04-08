@@ -6,7 +6,7 @@ export default function Selector2(props) {
   const [options, setOptions] = useState(null);
 
   const ChangeSelection = (selectObject) => {
-    props.method(selectObject.target.value)
+    //props.method(selectObject.target.value)
   }
 
   async function GetOptions() {
