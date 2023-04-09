@@ -12,6 +12,7 @@ import FlavorQuantityComp from "../../components/product_parameters/FlavorQuanti
 import WeightPriceComp from "../../components/product_parameters/WeightPriceComp";
 import FileUpload from "../../components/textbox/FileUpload";
 import api_product_add from "../../api/product/api_product_add";
+import api_photo_upload from "../../api/photo/api_photo_upload";
 
 export default function AddProductPage(props) {
     const [showErrorPN, setErrorPN] = useState(false)
@@ -83,7 +84,7 @@ export default function AddProductPage(props) {
       setErrorSubC(false)
     }
 
-    const HandleAddProduct = () => {
+    const HandleAddProduct = async () => {
       var isValidPN = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]+$/i.test(productName))
       var isValidSD = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,25}$/i.test(shortDescription))
       var isValidLD = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,100}$/i.test(longDescription))
@@ -110,9 +111,24 @@ export default function AddProductPage(props) {
         "weight_price": weightPrices,
         "flavor_quantity": flavorQuantities
       }
-      console.log(productJson)
 
-      api_product_add(productJson)
+      var photoJson = {
+        "name": fileName.split('.')[0],
+        "productName": productName,
+        "content": content
+      }
+
+      await api_product_add(productJson)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        });
+
+      setTimeout(() => {}, 1000);
+      
+      await api_photo_upload(photoJson)
         .then(response => {
           console.log(response)
         })

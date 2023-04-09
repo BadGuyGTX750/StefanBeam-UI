@@ -6,7 +6,7 @@ export default function FileUpload(props) {
   const handleChange = (event) => {
     // getting a hold of the file reference
     var file = event.target.files[0];
-    console.log(file)
+
     if (file === null || file === undefined) {
       props.method(null, '')
       return
@@ -19,13 +19,13 @@ export default function FileUpload(props) {
     // here we tell the reader what to do when it's done reading...
     reader.onload = readerEvent => {
       var content = readerEvent.target.result; // this is the content!
-      props.method(content, file.name)
+      props.method(file, file.name)
     }
   };
 
   return(
     <div className="file-upload-component">
-      <input type="file" accept=".jpg,.jpeg,.png" onChange={handleChange}/>
+      <input type="file" accept=".jpg,.jpeg,.png" onChange={ handleChange }/>
     </div>
   );
 }
