@@ -16,7 +16,6 @@ export default function WeightPriceComp(props) {
     var component = event.target.parentElement.parentElement.parentElement.parentElement
     var componentId = component.id
     var index = componentId.split('-')[2]
-    console.log(componentId, index)
 
     // not the most orthodox way, cause selector component might suffer changes,
     // but certainly the fastest way

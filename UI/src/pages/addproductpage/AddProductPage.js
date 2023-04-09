@@ -17,11 +17,14 @@ export default function AddProductPage(props) {
     const [showErrorSD, setErrorSD] = useState(false)
     const [showErrorLD, setErrorLD] = useState(false)
     const [showErrorSubC, setErrorSubC] = useState(false)
+    const [showErrorContent, setErrorContent] = useState(false)
 
     const [productName, setPN] = useState('')
     const [shortDescription, setSD] = useState('')
     const [longDescription, setLD] = useState('')
     const [subcategory, setsubC] = useState('')
+    const [content, setContent] = useState(null)
+    const [fileName, setFileName] = useState('')
     const [flavorQuantities, setFQ] = useState([])
     const [weightPrices, setWP] = useState([])
 
@@ -60,6 +63,16 @@ export default function AddProductPage(props) {
       setWP(pairs)
     }
 
+    function HandlePhotoChooser(content, fileNm) {
+      setContent(content)
+      setFileName(fileNm)
+      if (content == null && !(/^[a-zA-Z0-9_]+\.(jpg|jpeg|png|gif)$/i.test(fileNm))) {
+        setErrorContent(true)
+        return
+      }
+      setErrorContent(false)
+    }
+
     function SetSubcategory(value) {
       setsubC(value)
       if (value === '') {
@@ -74,16 +87,30 @@ export default function AddProductPage(props) {
       var isValidSD = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,25}$/i.test(shortDescription))
       var isValidLD = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,100}$/i.test(longDescription))
       var isValidSubC = subcategory !== ''
+      var isValidContent = content !== null
+      var isValidFileName = fileName !== null
 
-      console.log(productName, shortDescription, longDescription, subcategory, flavorQuantities, weightPrices)
+      //console.log(productName, shortDescription, longDescription, subcategory, content, flavorQuantities, weightPrices)
 
-      if (!(isValidPN && isValidSD && isValidLD && isValidSubC)) {
+      if (!(isValidPN && isValidSD && isValidLD && isValidSubC && isValidContent && isValidFileName)) {
         setErrorPN(!isValidPN)
         setErrorSD(!isValidSD)
         setErrorSD(!isValidLD)
         setErrorSubC(!isValidSubC)
+        setErrorContent(!(isValidContent && isValidFileName))
         return;
       }
+
+      var productJson = {
+        "name": productName,
+        "shortDescr": shortDescription,
+        "longDescr": longDescription,
+        "categoryName": subcategory,
+        "weight_price": weightPrices,
+        "flavor_quantity": flavorQuantities
+      }
+
+      console.log(productJson)
     }
 
 
@@ -140,7 +167,8 @@ export default function AddProductPage(props) {
 
           <div className="add-product-photo">
             <p>Upload an image to be associated with the product ***</p>
-            <FileUpload/>
+            <FileUpload method={ HandlePhotoChooser }/>
+            {showErrorContent && (<div className="add-product-error"><p>please choose a valid image - .png .jpg .jpeg</p></div>)}
           </div>
 
           <div className="add-product-FQ">
