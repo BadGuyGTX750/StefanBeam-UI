@@ -10,6 +10,7 @@ import api_subc_getBottom from "../../api/subcategories/api_subc_getBottom";
 import Button1 from "../../components/button/Button1";
 import FlavorQuantityComp from "../../components/product_parameters/FlavorQuantityComp";
 import WeightPriceComp from "../../components/product_parameters/WeightPriceComp";
+import FileUpload from "../../components/textbox/FileUpload";
 
 export default function AddProductPage(props) {
     const [showErrorPN, setErrorPN] = useState(false)
@@ -135,6 +136,11 @@ export default function AddProductPage(props) {
             <p>Select the subcategory of the product: **</p>
             <Selector method={SetSubcategory} ddItems={GetBottom()}/>
             {showErrorSubC && (<div className="add-product-error"><p>please select a subcategory</p></div>)}
+          </div>
+
+          <div className="add-product-photo">
+            <p>Upload an image to be associated with the product ***</p>
+            <FileUpload/>
           </div>
 
           <div className="add-product-FQ">

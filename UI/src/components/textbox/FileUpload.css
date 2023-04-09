@@ -1,0 +1,22 @@
+.file-upload-component input {
+    min-width: 480px;
+    min-height: 23px;
+    border: solid 2px black;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+
+.file-upload-component input:focus {
+    border: solid 2px grey;
+    outline: none;
+    border-radius: 5%;
+}
+
+.file-upload-component input::file-selector-button {
+    font-weight: bold;
+    background-color: #ff4100;
+    color: white;
+    height: 30px;
+    border: none
+}
