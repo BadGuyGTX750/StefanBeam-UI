@@ -30,7 +30,7 @@ export default function WeightPriceComp(props) {
     }
 
     var tmp = pairs
-    tmp[index] = {'weight': weight, 'price': price}
+    tmp[index] = {'weight': weight, 'price': price, 'currency': 'dollars'}
     setPairs(tmp)
 
     GetPairs(tmp)
@@ -44,12 +44,12 @@ export default function WeightPriceComp(props) {
     if (renderedPairs.length >= maxListSize)
       return
     var tmp = pairs
-    setPairs([...pairs, {weight: '980', price: '20'}])
+    setPairs([...pairs, {weight: '980', price: '20', 'currency': 'dollars'}])
     setRenderedPairs([...renderedPairs, GetDefaultPair(pairIndex)])
     if (pairIndex < maxListSize) {
       setPairIndex(pairIndex + 1)
     }
-    GetPairs([...tmp, {weight: '980', price: '20'}])
+    GetPairs([...tmp, {weight: '980', price: '20', 'currency': 'dollars'}])
   }
 
   const RemovePair = () => {

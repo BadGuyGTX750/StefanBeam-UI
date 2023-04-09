@@ -11,6 +11,7 @@ import Button1 from "../../components/button/Button1";
 import FlavorQuantityComp from "../../components/product_parameters/FlavorQuantityComp";
 import WeightPriceComp from "../../components/product_parameters/WeightPriceComp";
 import FileUpload from "../../components/textbox/FileUpload";
+import api_product_add from "../../api/product/api_product_add";
 
 export default function AddProductPage(props) {
     const [showErrorPN, setErrorPN] = useState(false)
@@ -109,8 +110,15 @@ export default function AddProductPage(props) {
         "weight_price": weightPrices,
         "flavor_quantity": flavorQuantities
       }
-
       console.log(productJson)
+
+      api_product_add(productJson)
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error => {
+          console.log(error)
+        });
     }
 
 
