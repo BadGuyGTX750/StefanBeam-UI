@@ -13,6 +13,7 @@ import WeightPriceComp from "../../components/product_parameters/WeightPriceComp
 import FileUpload from "../../components/textbox/FileUpload";
 import api_product_add from "../../api/product/api_product_add";
 import api_photo_upload from "../../api/photo/api_photo_upload";
+import LoadingSpinner from "../../components/spinner/Spinner";
 
 export default function AddProductPage(props) {
     const [showErrorPN, setErrorPN] = useState(false)
@@ -29,10 +30,11 @@ export default function AddProductPage(props) {
     const [fileName, setFileName] = useState('')
     const [flavorQuantities, setFQ] = useState([])
     const [weightPrices, setWP] = useState([])
+    const [isLoading, setIsLoading] = useState(false)
 
     function HandleProductNameChange(value) {
       setPN(value);
-      if (!(/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]+$/i.test(value))) {
+      if (!(/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]+$/i.test(value))) {
         setErrorPN(true)
         return;
       }
@@ -41,7 +43,7 @@ export default function AddProductPage(props) {
 
     function HandleShortDescriptionChange(value) {
       setSD(value);
-      if (!(/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,25}$/i.test(value))) {
+      if (!(/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]{0,25}$/i.test(value))) {
         setErrorSD(true)
         return;
       }
@@ -50,7 +52,7 @@ export default function AddProductPage(props) {
 
     function HandleLongDescriptionChange(value) {
       setLD(value);
-      if (!(/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,100}$/i.test(value))) {
+      if (!(/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]{0,100}$/i.test(value))) {
         setErrorLD(true)
         return;
       }
@@ -68,7 +70,7 @@ export default function AddProductPage(props) {
     function HandlePhotoChooser(content, fileNm) {
       setContent(content)
       setFileName(fileNm)
-      if (content == null && !(/^[a-zA-Z0-9_]+\.(jpg|jpeg|png|gif)$/i.test(fileNm))) {
+      if (content == null && !(/^[a-zA-Z0-9_\-]+\.(jpg|jpeg|png|gif)$/i.test(fileNm))) {
         setErrorContent(true)
         return
       }
@@ -85,9 +87,10 @@ export default function AddProductPage(props) {
     }
 
     const HandleAddProduct = async () => {
-      var isValidPN = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]+$/i.test(productName))
-      var isValidSD = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,25}$/i.test(shortDescription))
-      var isValidLD = (/^[A-Za-z\d!@#$%^&*()_+=[\]{}|\\;:",.<>/?]{0,100}$/i.test(longDescription))
+      setIsLoading(true)
+      var isValidPN = (/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]+$/i.test(productName))
+      var isValidSD = (/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]{0,25}$/i.test(shortDescription))
+      var isValidLD = (/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]{0,100}$/i.test(longDescription))
       var isValidSubC = subcategory !== ''
       var isValidContent = content !== null
       var isValidFileName = fileName !== null
@@ -100,6 +103,7 @@ export default function AddProductPage(props) {
         setErrorSD(!isValidLD)
         setErrorSubC(!isValidSubC)
         setErrorContent(!(isValidContent && isValidFileName))
+        setIsLoading(false)
         return;
       }
 
@@ -120,20 +124,20 @@ export default function AddProductPage(props) {
 
       await api_product_add(productJson)
         .then(response => {
-          console.log(response)
         })
         .catch(error => {
-          console.log(error)
+          setTimeout(() => setIsLoading(false), 1000)
+          return
         });
 
       setTimeout(() => {}, 1000);
       
       await api_photo_upload(photoJson)
         .then(response => {
-          console.log(response)
+          setTimeout(() => setIsLoading(false), 1000)
         })
         .catch(error => {
-          console.log(error)
+          setTimeout(() => setIsLoading(false), 1000)
         });
     }
 
@@ -152,6 +156,9 @@ export default function AddProductPage(props) {
 
     return(
       <div className="content">
+
+        { isLoading && <LoadingSpinner/> }
+
         <div className="navbar">
           <Navbar GetProductFamily={ GetProductFamily }/>
         </div>

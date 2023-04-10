@@ -56,7 +56,7 @@
     cursor: pointer;
 }
 
-.categories p {
+.categories a {
     text-decoration: none;
     color: black;
     font-family: sans-serif;

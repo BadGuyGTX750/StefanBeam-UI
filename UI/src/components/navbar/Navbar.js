@@ -109,25 +109,25 @@ export default function Navbar(props) {
 
         <div className="categories">
             <div className="categories-item" onMouseEnter={HandleMouseEnterSN} onMouseLeave={HandleMouseLeaveSN}>
-              <p>SPORTS NUTRITION</p>
+              <a href="/SPORTS-NUTRITION">SPORTS NUTRITION</a>
               <div className="sports-nutrition-dropdown">
                 { isDroppedDownSN && <GenericDD jsonFile={jsonFileSN} GetProductFamily={props.GetProductFamily}/> }
               </div>
             </div>
             <div className="categories-item" onMouseEnter={HandleMouseEnterHF} onMouseLeave={HandleMouseLeaveHF}>
-              <p>HEALTHY FOODS</p>
+              <a href="/HEALTHY-FOODS">HEALTHY FOODS</a>
               <div className="healthy-foods-dropdown">
                 { isDroppedDownHF && <GenericDD jsonFile={jsonFileHF} GetProductFamily={props.GetProductFamily}/> }
               </div>
             </div>
             <div className="categories-item" onMouseEnter={HandleMouseEnterC} onMouseLeave={HandleMouseLeaveC}>
-              <p>CLOTHING</p>
+              <a href="/CLOTHING">CLOTHING</a>
               <div className="clothing-dropdown">
                 { isDroppedDownC && <GenericDD jsonFile={jsonFileC} GetProductFamily={props.GetProductFamily}/> }
               </div>
             </div>
             <div className="categories-item" onMouseEnter={HandleMouseEnterWA} onMouseLeave={HandleMouseLeaveWA}>
-              <p>WORKOUT ACCESSORIES</p>
+              <a href="/WORKOUT-ACCESSORIES">WORKOUT ACCESSORIES</a>
               <div className="workout-accessories-dropdown">
                 { isDroppedDownWA && <GenericDD jsonFile={jsonFileWA} GetProductFamily={props.GetProductFamily}/> }
               </div>
