@@ -34,7 +34,7 @@ export default function AddProductPage(props) {
 
     function HandleProductNameChange(value) {
       setPN(value);
-      if (!(/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]+$/i.test(value))) {
+      if (!(/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/?]+$/i.test(value))) {
         setErrorPN(true)
         return;
       }
@@ -88,7 +88,7 @@ export default function AddProductPage(props) {
 
     const HandleAddProduct = async () => {
       setIsLoading(true)
-      var isValidPN = (/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]+$/i.test(productName))
+      var isValidPN = (/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/?]+$/i.test(productName))
       var isValidSD = (/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]{0,25}$/i.test(shortDescription))
       var isValidLD = (/^[A-Za-z\d!@#$%^&*()_\-+=[\]{}|\\;:",.<>/? ]{0,100}$/i.test(longDescription))
       var isValidSubC = subcategory !== ''
