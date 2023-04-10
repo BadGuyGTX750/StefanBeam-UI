@@ -20,7 +20,7 @@ export default function WeightPriceComp(props) {
     // not the most orthodox way, cause selector component might suffer changes,
     // but certainly the fastest way
     var weight = component.getElementsByTagName('div')[0].firstChild.firstChild.firstChild.value;
-    if (!/^[0-9]{1,4} (caps|g)$/i.test(weight)) {
+    if (!/^[0-9]{1,4} ((g|caps)|tab)$/i.test(weight)) {
       weight = '20'
     }
 
@@ -74,7 +74,7 @@ export default function WeightPriceComp(props) {
             className="weight-price-pair">
 
         <div className="weight-price-pair-weight">
-          <Textbox2 REGEXVERIFY={/^[0-9]{1,4} (caps|g)$/i} type="text" default="980" method={HandleNumberChange}/>
+          <Textbox2 REGEXVERIFY={/^[0-9]{1,4} ((g|caps)|tab)$/i} type="text" default="980 g" method={HandleNumberChange}/>
         </div>
         
         <div className="weight-price-pair-price">

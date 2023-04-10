@@ -19,6 +19,7 @@ export default function FlavorQuantityComp(props) {
                       'chocolate',
                       'chocolate hazelnut',
                       'coconut cream',
+                      'crunchy',
                       'fruit punch',
                       'green apple',
                       'lemon cheesecake',
