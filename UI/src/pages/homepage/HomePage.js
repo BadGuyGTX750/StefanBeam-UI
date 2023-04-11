@@ -44,7 +44,7 @@ export default function HomePage(props) {
       </div>
           
       <div className="spotlight">
-        <img src={require("../../images/spotlight-1.png")} alt="site-logo" height="600"></img>
+        <img src={require("../../images/spotlight-3.png")} alt="site-logo" height="600"></img>
       </div>
 
       <div className="products-section">
