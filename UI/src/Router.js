@@ -18,7 +18,6 @@ function Router(props) {
     if (typeof file !== 'object') {
       return
     }
-
     file.map((item) => {
       pairs.push(item.title)
       dfs(item.children)
@@ -29,7 +28,6 @@ function Router(props) {
   function AddRoutes() {
     var routes = [];
     var menuList = dfs(jsonFile)
-    console.log(menuList)
     menuList.map(item => {
       item = item.split(',').join('')
       item = item.split(' ').join('-')
