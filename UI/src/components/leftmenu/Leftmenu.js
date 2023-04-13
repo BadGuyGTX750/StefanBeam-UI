@@ -4,13 +4,30 @@ import "./Leftmenu.css";
 
 const menuData = appsettings.categories;
 
-
 function Menu({ items }) {
+  const [displayChildren, setDisplayChildren] = useState({});
+
   return(
     <ul>
-      {Object.entries(items).map(([key, value]) => (
+      {items.map(item => (
         <li>
-          {key}
+          <p className={"sub-menu-item-"}> {item.title} </p>
+          {
+            item.children && (
+              <img 
+                src={require("../../images/down-arrow-icon.png")} 
+                alt="drop-down-arrow" height="11"
+                onClick={() => {
+                  setDisplayChildren({
+                    ...displayChildren,
+                    [item.title]: !displayChildren[item.title],
+                  });
+                }}
+              >
+              </img>
+            )
+          }
+          {displayChildren[item.title] && item.children && <Menu items={item.children}/>}
         </li>
       ))}
     </ul>
@@ -20,6 +37,8 @@ function Menu({ items }) {
 
 export default function LeftMenu() {
   return (
-    <Menu items={menuData}/>
+    <div className="left-menu">
+      <Menu items={menuData}/>
+    </div>
   )
 }

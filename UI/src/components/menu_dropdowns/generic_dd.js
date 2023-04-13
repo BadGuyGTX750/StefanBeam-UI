@@ -16,6 +16,7 @@ export default class GenericDD extends React.Component{
     if (typeof file !== 'object') {
       return
     }
+    // eslint-disable-next-line
     file.map((item) => {
       this.pairs.push([item.title, level])
       this.dfs(item.children, level + 1)
