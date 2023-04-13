@@ -1,0 +1,37 @@
+
+.leftmenu {
+  background-color: lightgrey;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.leftmenu ul {
+  list-style: none;
+  padding-left: 0px;
+}
+
+.leftmenu li {
+  font-size: 15px;
+  font-family: sans-serif;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+.has-submenu {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  transition: 0.3s ease-out;
+}
+
+.has-submenu.level0 {
+  font-weight: bold;
+}
+
+.has-submenu:hover {
+  color: #ff4100;
+  transition: 0.3s ease-in;
+}
+
+.has-submenu.visible {
+  display: none;
+}

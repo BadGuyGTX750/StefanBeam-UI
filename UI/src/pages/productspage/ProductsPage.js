@@ -10,6 +10,7 @@ import api_subc_getByParentName from "../../api/subcategories/api_subc_getByPare
 import api_product_getByCategoryName from "../../api/product/api_product_getByCategoryName";
 import api_product_getFlavorQuantitiesByProductName from "../../api/product/api_product_getFlavorQuantitiesByProductName";
 import api_product_getWeightPricesByProductName from "../../api/product/api_product_getWeightPricesByProductName";
+import LeftMenu from "../../components/leftmenu/Leftmenu";
 
 export default function ProductsPage(props) {
 
@@ -84,7 +85,7 @@ export default function ProductsPage(props) {
 
         <div className="pp-products-section">
             <div className="pp-left-menu">
-
+              <LeftMenu/>
             </div>
 
             <div className="pp-right-products-section">
