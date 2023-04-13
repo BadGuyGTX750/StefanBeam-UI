@@ -15,22 +15,21 @@ function Router(props) {
   var pairs = []
 
   function dfs(file) {
-    if (typeof file === 'string') {
-      pairs.push(file)
+    if (typeof file !== 'object') {
       return
     }
-    var data = Object.keys(file)
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].length > 1)
-        pairs.push(data[i])
-      dfs(file[data[i]])
-    }
+
+    file.map((item) => {
+      pairs.push(item.title)
+      dfs(item.children)
+    })
     return pairs
   }
 
   function AddRoutes() {
     var routes = [];
     var menuList = dfs(jsonFile)
+    console.log(menuList)
     menuList.map(item => {
       item = item.split(',').join('')
       item = item.split(' ').join('-')
