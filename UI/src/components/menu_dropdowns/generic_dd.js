@@ -28,7 +28,6 @@ export default class GenericDD extends React.Component{
   BuildDropDownMenu() {
     this.pairs = []
     const menuList = this.dfs(this.jsonFile, 0);
-    console.log(menuList)
     const returnable = menuList.map((item) => (
         <div key={item[0]} className={"gen-dd-item-" + item[1]}>{item[0]}</div>
     ))

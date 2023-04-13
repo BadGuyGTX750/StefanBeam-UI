@@ -4,14 +4,14 @@ import "./Leftmenu.css";
 
 const menuData = appsettings.categories;
 
-function Menu({ items }) {
+function Menu({ items, level }) {
   const [displayChildren, setDisplayChildren] = useState({});
-
+  console.log(level)
   return(
     <ul>
       {items.map(item => (
         <li>
-          <p className={"sub-menu-item-"}> {item.title} </p>
+          <p className={"sub-menu-item-"+level}> {item.title} </p>
           {
             item.children && (
               <img 
@@ -27,7 +27,7 @@ function Menu({ items }) {
               </img>
             )
           }
-          {displayChildren[item.title] && item.children && <Menu items={item.children}/>}
+          {displayChildren[item.title] && item.children && <Menu items={item.children} level={level+1}/>}
         </li>
       ))}
     </ul>
@@ -38,7 +38,7 @@ function Menu({ items }) {
 export default function LeftMenu() {
   return (
     <div className="left-menu">
-      <Menu items={menuData}/>
+      <Menu items={menuData} level={0}/>
     </div>
   )
 }
