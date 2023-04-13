@@ -1,17 +1,24 @@
 import React, { useState } from "react";
 import appsettings from "../../appsettings.json";
 import "./Leftmenu.css";
+import GetProductFamily from "../utils/GetProductFamily";
 
 const menuData = appsettings.categories;
 
 function Menu({ items, level }) {
   const [displayChildren, setDisplayChildren] = useState({});
-  console.log(level)
   return(
     <ul>
       {items.map(item => (
-        <li>
-          <p className={"sub-menu-item-"+level}> {item.title} </p>
+        <li key={item.title}>
+          <p 
+            className={"sub-menu-item-"+level}
+            onClick={(event) => {
+              var goTo = event.target.textContent
+              GetProductFamily(goTo)
+            }}
+          >{item.title} 
+          </p>
           {
             item.children && (
               <img 
