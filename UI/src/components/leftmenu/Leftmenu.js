@@ -5,8 +5,16 @@ import GetProductFamily from "../utils/GetProductFamily";
 
 const menuData = appsettings.categories;
 
+const arrowStyleUp = {
+  transform: "rotate(180deg)"
+}
+const arrowStyleDown = {
+  transform: "rotate(0deg)"
+}
+
 function Menu({ items, level }) {
   const [displayChildren, setDisplayChildren] = useState({});
+  const [arrowStyle, setArrowStyle] = useState({});
   return(
     <ul>
       {items.map(item => (
@@ -23,8 +31,12 @@ function Menu({ items, level }) {
             item.children && (
               <img 
                 src={require("../../images/down-arrow-icon.png")} 
-                alt="drop-down-arrow" height="11"
+                alt="drop-down-arrow" height="11" style={arrowStyle[item.title]? arrowStyleUp: arrowStyleDown}
                 onClick={() => {
+                  setArrowStyle({
+                    ...arrowStyle,
+                    [item.title]: !arrowStyle[item.title]
+                  })
                   setDisplayChildren({
                     ...displayChildren,
                     [item.title]: !displayChildren[item.title],
