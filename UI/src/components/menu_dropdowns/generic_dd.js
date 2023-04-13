@@ -13,22 +13,21 @@ export default class GenericDD extends React.Component{
   }
 
   dfs(file, level) {
-    if (typeof file === 'string') {
-      this.pairs.push([file, level/2])
+    if (typeof file !== 'object') {
       return
     }
-    var data = Object.keys(file)
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].length > 1)
-        this.pairs.push([data[i], level/2])
-      this.dfs(file[data[i]], level + 1)
-    }
+    file.map((item) => {
+      this.pairs.push([item.title, level])
+      this.dfs(item.children, level + 1)
+    })
+
     return this.pairs
   }
 
   BuildDropDownMenu() {
     this.pairs = []
     const menuList = this.dfs(this.jsonFile, 0);
+    console.log(menuList)
     const returnable = menuList.map((item) => (
         <div key={item[0]} className={"gen-dd-item-" + item[1]}>{item[0]}</div>
     ))

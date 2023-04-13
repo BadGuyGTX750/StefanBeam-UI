@@ -13,7 +13,7 @@ export default function Navbar(props) {
 
 
     // Sports Nutrition Dropdown Setup
-    const jsonFileSN = appsettings.categories["SPORTS NUTRITION"];
+    const jsonFileSN = appsettings.categories[0].children;
     const [isDroppedDownSN, setIsDroppedDownSN] = useState(false)
 
     const HandleMouseEnterSN = () => {
@@ -24,7 +24,7 @@ export default function Navbar(props) {
     }
 
     // Healthy Foods Dropdown Setup
-    const jsonFileHF = appsettings.categories["HEALTHY FOODS"];
+    const jsonFileHF = appsettings.categories[1].children;
     const [isDroppedDownHF, setIsDroppedDownHF] = useState(false);
 
     const HandleMouseEnterHF = () => {
@@ -35,7 +35,7 @@ export default function Navbar(props) {
     }
 
     // Clothing Dropdown Setup
-    const jsonFileC = appsettings.categories["CLOTHING"];
+    const jsonFileC = appsettings.categories[2].children;
     const [isDroppedDownC, setIsDroppedDownC] = useState(false);
 
     const HandleMouseEnterC = () => {
@@ -46,7 +46,7 @@ export default function Navbar(props) {
     }
 
     // Workout Accessories Dropdown Setup
-    const jsonFileWA = appsettings.categories["WORKOUT ACCESSORIES"];
+    const jsonFileWA = appsettings.categories[3].children;
     const [isDroppedDownWA, setIsDroppedDownWA] = useState(false);
 
     const HandleMouseEnterWA = () => {
