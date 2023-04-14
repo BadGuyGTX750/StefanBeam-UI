@@ -70,7 +70,11 @@ export default function ProductsPage(props) {
         return
       await GetThemAllProds()
       const returnable = prods.map((item) => (
-        <div key={item.name}> <ProductCard productTitle={item.name} price={item.weight_price[0].price}/> </div>
+        <div key={item.name}> <ProductCard productTitle={item.name}
+                                          price={item.weight_price[0].price}
+                                          weight_price={item.weight_price}
+                                          flavor_quantity={item.flavor_quantity}/>
+        </div>
       ))
       setProdsHtml(returnable)
     }
@@ -85,7 +89,7 @@ export default function ProductsPage(props) {
 
         <div className="pp-products-section">
             <div className="pp-left-menu">
-              <LeftMenu/>
+              <LeftMenu subcategory={prodFam}/>
             </div>
 
             <div className="pp-right-products-section">

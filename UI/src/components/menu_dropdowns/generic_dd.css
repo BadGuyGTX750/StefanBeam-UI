@@ -8,6 +8,7 @@
     border: solid 2px black;
     padding-top: 3px;
     padding-bottom: 10px;
+    z-index: 1;
 }
 
 .gen-dd-item-0 {
