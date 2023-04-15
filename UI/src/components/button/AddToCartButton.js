@@ -9,6 +9,7 @@ export default function AddToCartButton(props) {
   return(
     <div className="add-to-cart-button-orange">
       <button type={buttonType}>{buttonText}</button>
+      <img src={require("../../images/shopping-cart-icon-inverted.png")} alt="add-to-cart-img" height="30px"></img>
     </div>
   );
 }

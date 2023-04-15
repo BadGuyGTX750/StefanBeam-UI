@@ -15,4 +15,5 @@
 .button1-orange button:hover {
     background-color: #b82e00;
     transition: 0.3s ease-in;
+    cursor: pointer;
 }

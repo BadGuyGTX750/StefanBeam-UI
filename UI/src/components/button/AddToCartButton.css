@@ -1,3 +1,8 @@
+
+.add-to-cart-button-orange {
+    position: relative;
+}
+
 .add-to-cart-button-orange button {
     color: white;
     font-size: 15px;
@@ -15,4 +20,12 @@
 .add-to-cart-button-orange button:hover {
     background-color: #b82e00;
     transition: 0.3s ease-in;
+    cursor: pointer;
+}
+
+.add-to-cart-button-orange img {
+    top: 10px;
+    left: 420px;
+    position: absolute;
+    pointer-events: none;
 }
