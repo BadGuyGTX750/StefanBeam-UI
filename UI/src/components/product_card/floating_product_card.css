@@ -29,6 +29,7 @@
 
 .floating-product-card-image {
   padding-top: 5px;
+  padding-bottom: 10px;
   padding-left: 140px;
   background-color: aquamarine;
 }
@@ -47,4 +48,25 @@
 .floating-product-card-title h3 {
   font-family: sans-serif;
   font-size: 18px;
+}
+
+.floating-product-card-price-packaging {
+  background-color: aquamarine;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: row;
+  font-family: sans-serif;
+}
+
+.floating-product-card-packaging {
+  margin-left: 10px;
+}
+
+.floating-product-card-add-to-cart {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  background-color: antiquewhite;
 }

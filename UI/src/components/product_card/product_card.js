@@ -11,6 +11,8 @@ export default function ProductCard(props) {
   const productTitle = props.productTitle
   const title = productTitle.split('-').join(' ').split('&').join(' ')
   const price = props.price
+  const weight_price = props.weight_price
+  const flavor_quantity = props.flavor_quantity
 
   const showFloatingCard = () => {
     setShowFloat(!showFloat)
@@ -49,7 +51,9 @@ export default function ProductCard(props) {
         { showFloat && <FloatingProductCard
                           closeMethod={showFloatingCard}
                           photoSrc={downloadPSrc}
-                          title={title}/> 
+                          title={title}
+                          weight_price={weight_price}
+                          flavor_quantity={flavor_quantity}/> 
         }
       </div>
 

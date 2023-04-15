@@ -1,0 +1,14 @@
+
+.selector-box-4 select {
+    height: 30px;
+    width: 160px;
+    border: solid 2px black;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.selector-box-4 select:focus {
+    border: solid 2px grey;
+    outline: none;
+    border-radius: 5%;
+}
