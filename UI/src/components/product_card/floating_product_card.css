@@ -10,17 +10,17 @@
 .floating-product-card {
   margin: auto;
   width: 500px;
-  height: 520px;
+  height: 480px;
   background-color: white;
   margin-top: 100px;
 }
 
 .floating-product-card-close {
-  background-color: aqua;
+  background-color: white;
 }
 
 .floating-product-card-close img {
-  background-color: rebeccapurple;
+  background-color: white;
   padding: 10px;
   margin-left: 460px;
   margin-top: 3px;
@@ -31,7 +31,7 @@
   padding-top: 5px;
   padding-bottom: 10px;
   padding-left: 140px;
-  background-color: aquamarine;
+  background-color: white;
 }
 
 .floating-product-card-image img {
@@ -39,7 +39,7 @@
 }
 
 .floating-product-card-title {
-  background-color: antiquewhite;
+  background-color: white;
   padding-left: 16px;
   padding-top: 3px;
   padding-bottom: 3px;
@@ -50,8 +50,8 @@
   font-size: 18px;
 }
 
-.floating-product-card-price-packaging {
-  background-color: aquamarine;
+.floating-product-card-packaging-flavor {
+  background-color: white;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 16px;
@@ -60,7 +60,12 @@
   font-family: sans-serif;
 }
 
-.floating-product-card-packaging {
+.floating-product-card-packaging-flavor p {
+  padding-bottom: 3px;
+  font-size: 15px;
+}
+
+.floating-product-card-flavor {
   margin-left: 10px;
 }
 
@@ -68,5 +73,14 @@
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 16px;
-  background-color: antiquewhite;
+  background-color: white;
+}
+
+.floating-product-card-price {
+  padding-top: 2px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: sans-serif;
 }
